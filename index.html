@@ -1,220 +1,240 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<title>Frau & Bär Engineering</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<head>
+    <title>Frau & Bär Engineering</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<style>
-			html { scroll-behavior: smooth; }
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-			.intro-logo {
-				max-width: 360px;
-				height: auto;
-				margin: 0.8rem auto 1.8rem auto;
-				display: block;
-			}
-			#intro p {
-				margin-top: 1rem;
-				line-height: 1.6;
-				font-size: 1.1rem;
-			}
-			@media screen and (max-width: 736px) {
-				.intro-logo { max-width: 290px; margin: 0.6rem auto 1.5rem auto; }
-				#intro h1 { font-size: 2.8rem; line-height: 1.1; }
-				#intro p { font-size: 1.25rem; }
-			}
+        .intro-logo {
+            max-width: 360px;
+            height: auto;
+            margin: 0.8rem auto 1.8rem auto;
+            display: block;
+        }
 
-			/* MENU MÁS PEGADO A LA IZQUIERDA + DESPLIEGUE IZQUIERDA → DERECHA */
-			.navPanelToggle,
-			a.navPanelToggle,
-			[href="#navPanel"] {
-				left: 0.4em !important;
-				right: auto !important;
-				position: fixed !important;
-				z-index: 99999 !important;
-			}
-			#navPanel {
-				left: 0 !important;
-				right: auto !important;
-				transform: translateX(-100%) !important;
-			}
-			.is-navPanel-visible #navPanel {
-				transform: translateX(0) !important;
-			}
-			#navPanel .close {
-				position: absolute !important;
-				top: 1.2em !important;
-				right: 1.5em !important;
-				left: auto !important;
-				font-size: 2.2rem;
-				color: #fff;
-			}
+        #intro p {
+            margin-top: 1rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
 
-			/* SELECTOR DE IDIOMAS - Variante 2 (minimalista) */
-			.lang-selector {
-				position: absolute;
-				top: 1.3rem;
-				right: 1.6rem;
-				font-size: 0.9rem;
-				color: #999999;
-				letter-spacing: 1.2px;
-				z-index: 100;
-			}
-			.lang-selector a.lang {
-				margin-left: 1.1rem;
-				color: inherit;
-				text-decoration: none;
-				transition: color 0.18s ease;
-			}
-			.lang-selector a.lang:first-child {
-				margin-left: 0;
-			}
-			.lang-selector a.lang:hover,
-			.lang-selector a.lang.active {
-				color: #ffffff;
-			}
+        @media screen and (max-width: 736px) {
+            .intro-logo {
+                max-width: 290px;
+                margin: 0.6rem auto 1.5rem auto;
+            }
+            #intro h1 {
+                font-size: 2.8rem;
+                line-height: 1.1;
+            }
+            #intro p {
+                font-size: 1.25rem;
+            }
+        }
 
-			/* Ajuste en móvil para no chocar con el botón menú */
-			@media (max-width: 736px) {
-				.lang-selector {
-					top: 1.1rem;
-					right: 4.8rem;          /* deja espacio para el botón menú */
-					font-size: 0.85rem;
-				}
-				.lang-selector a.lang {
-					margin-left: 0.9rem;
-				}
-			}
-		</style>
-	</head>
-	<body class="is-preload">
+        /* Botón menú muy pegado a la izquierda */
+        .navPanelToggle,
+        a.navPanelToggle,
+        [href="#navPanel"] {
+            left: 0.4em !important;
+            right: auto !important;
+            position: fixed !important;
+            z-index: 99999 !important;
+        }
 
-		<div id="wrapper" class="fade-in">
+        /* Panel desliza de izquierda a derecha */
+        #navPanel {
+            left: 0 !important;
+            right: auto !important;
+            transform: translateX(-100%) !important;
+        }
 
-			<!-- SELECTOR DE IDIOMAS (arriba a la derecha) -->
-			<div class="lang-selector">
-				<a href="#" class="lang active">ES</a>
-				<a href="#" class="lang">CA</a>
-				<a href="#" class="lang">EN</a>
-				<a href="#" class="lang">DE</a>
-			</div>
+        .is-navPanel-visible #navPanel {
+            transform: translateX(0) !important;
+        }
 
-			<!-- INTRO -->
-			<div id="intro">
-				<img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
-				<h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
-				<p>a firm providing comprehensive engineering.<br /><br />
-				Based in Mallorca</p>
-				<ul class="actions">
-					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-				</ul>
-			</div>
+        /* X de cerrar arriba a la derecha */
+        #navPanel .close {
+            position: absolute !important;
+            top: 1.2em !important;
+            right: 1.5em !important;
+            left: auto !important;
+            font-size: 2.2rem;
+            color: #fff;
+        }
 
-			<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="logo">Massively</a>
-			</header>
+        /* SELECTOR DE IDIOMAS - Ajustado según tus últimas instrucciones */
+        .lang-selector {
+            position: absolute;
+            top: 50%;
+            right: 0.8rem;                   /* muy pegado a la derecha */
+            transform: translateY(-50%);     /* alineado verticalmente con el botón menú */
+            font-size: 1rem;                 /* mismo tamaño que el texto del menú */
+            font-weight: normal;
+            color: #999999;
+            letter-spacing: 0.8px;
+            white-space: nowrap;
+            z-index: 100;
+        }
 
-			<!-- NAV -->
-			<nav id="nav">
-				<ul class="links">
-					<li class="active"><a href="#quienes-somos">QUIENES SOMOS</a></li>
-					<li><a href="#servicios">SERVICIOS</a></li>
-					<li><a href="#proyectos">PROYECTOS</a></li>
-					<li><a href="#contacto">CONTACTO</a></li>
-				</ul>
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				</ul>
-			</nav>
+        .lang-selector a.lang {
+            margin-left: 0.9rem;             /* espacio reducido entre opciones */
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.18s ease;
+        }
 
-			<!-- MAIN CON SECCIONES -->
-			<div id="main">
+        .lang-selector a.lang:first-child {
+            margin-left: 0;
+        }
 
-				<section id="quienes-somos">
-					<header class="major">
-						<h2>Quiénes Somos</h2>
-					</header>
-					<p>Frau & Bär Engineering es una firma de ingeniería integral con sede en Mallorca. Combinamos la precisión alemana con la innovación mediterránea para ofrecer soluciones sostenibles en ingeniería civil, mecánica, eléctrica y medioambiental.</p>
-				</section>
+        .lang-selector a.lang:hover,
+        .lang-selector a.lang.active {
+            color: #ffffff;
+        }
 
-				<section id="servicios">
-					<header class="major">
-						<h2>Servicios</h2>
-					</header>
-					<p>Ofrecemos servicios completos de ingeniería:</p>
-					<ul>
-						<li>Ingeniería Civil y Estructural</li>
-						<li>MEP (Mecánica, Eléctrica, Plomería)</li>
-						<li>Energías Renovables (solar, eólica)</li>
-						<li>Reformas sostenibles y eficiencia energética</li>
-						<li>Gestión de proyectos y permisos</li>
-					</ul>
-				</section>
+        /* En móvil: espacio justo para no chocar con el botón menú */
+        @media (max-width: 736px) {
+            .lang-selector {
+                right: 4.2rem;
+                font-size: 0.95rem;
+            }
+            .lang-selector a.lang {
+                margin-left: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body class="is-preload">
 
-				<section id="proyectos">
-					<header class="major">
-						<h2>Proyectos</h2>
-					</header>
-					<!-- Aquí pegas tu contenido de proyectos actual (featured + posts) -->
-					<article class="post featured">
-						<header class="major">
-							<span class="date">April 25, 2017</span>
-							<h2><a href="#">And this is a<br />massive headline</a></h2>
-							<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />amet nullam sed etiam veroeros.</p>
-						</header>
-						<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
-						<ul class="actions special">
-							<li><a href="#" class="button large">Full Story</a></li>
-						</ul>
-					</article>
+    <div id="wrapper" class="fade-in">
 
-					<section class="posts">
-						<!-- Tus 6 artículos originales aquí -->
-					</section>
-				</section>
+        <!-- Selector de idiomas arriba a la derecha -->
+        <div class="lang-selector">
+            <a href="#" class="lang active">ES</a>
+            <a href="#" class="lang">CA</a>
+            <a href="#" class="lang">EN</a>
+            <a href="#" class="lang">DE</a>
+        </div>
 
-				<section id="contacto">
-					<header class="major">
-						<h2>Contacto</h2>
-					</header>
-					<form method="post" action="#">
-						<div class="fields">
-							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" /></div>
-							<div class="field"><label for="email">Email</label><input type="text" name="email" id="email" /></div>
-							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3"></textarea></div>
-						</div>
-						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
-					</form>
-				</section>
+        <!-- Intro -->
+        <div id="intro">
+            <img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
+            <h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
+            <p>a firm providing comprehensive engineering.<br /><br />
+            Based in Mallorca</p>
+            <ul class="actions">
+                <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+            </ul>
+        </div>
 
-			</div>
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Massively</a>
+        </header>
 
-			<!-- Footer y Copyright -->
-			<footer id="footer">
-				<section class="split contact">
-					<!-- Tu información de contacto -->
-				</section>
-			</footer>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li class="active"><a href="#quienes-somos">QUIENES SOMOS</a></li>
+                <li><a href="#servicios">SERVICIOS</a></li>
+                <li><a href="#proyectos">PROYECTOS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+        </nav>
 
-			<div id="copyright">
-				<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-			</div>
+        <!-- Main con secciones -->
+        <div id="main">
 
-		</div>
+            <section id="quienes-somos">
+                <header class="major">
+                    <h2>Quiénes Somos</h2>
+                </header>
+                <p>Frau & Bär Engineering es una firma de ingeniería integral con sede en Mallorca. Combinamos la precisión alemana con la innovación mediterránea para ofrecer soluciones sostenibles en ingeniería civil, mecánica, eléctrica y medioambiental.</p>
+            </section>
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
+            <section id="servicios">
+                <header class="major">
+                    <h2>Servicios</h2>
+                </header>
+                <p>Ofrecemos servicios completos de ingeniería:</p>
+                <ul>
+                    <li>Ingeniería Civil y Estructural</li>
+                    <li>MEP (Mecánica, Eléctrica, Plomería)</li>
+                    <li>Energías Renovables (solar, eólica)</li>
+                    <li>Reformas sostenibles y eficiencia energética</li>
+                    <li>Gestión de proyectos y permisos</li>
+                </ul>
+            </section>
 
-	</body>
+            <section id="proyectos">
+                <header class="major">
+                    <h2>Proyectos</h2>
+                </header>
+                <!-- Aquí pega tu contenido actual de proyectos -->
+                <article class="post featured">
+                    <header class="major">
+                        <span class="date">April 25, 2017</span>
+                        <h2><a href="#">And this is a<br />massive headline</a></h2>
+                        <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />amet nullam sed etiam veroeros.</p>
+                    </header>
+                    <a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+                    <ul class="actions special">
+                        <li><a href="#" class="button large">Full Story</a></li>
+                    </ul>
+                </article>
+
+                <section class="posts">
+                    <!-- Tus 6 artículos originales aquí -->
+                </section>
+            </section>
+
+            <section id="contacto">
+                <header class="major">
+                    <h2>Contacto</h2>
+                </header>
+                <form method="post" action="#">
+                    <div class="fields">
+                        <div class="field"><label for="name">Name</label><input type="text" name="name" id="name" /></div>
+                        <div class="field"><label for="email">Email</label><input type="text" name="email" id="email" /></div>
+                        <div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3"></textarea></div>
+                    </div>
+                    <ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
+                </form>
+            </section>
+
+        </div>
+
+        <!-- Footer y Copyright -->
+        <footer id="footer">
+            <!-- Tu contenido de footer -->
+        </footer>
+
+        <div id="copyright">
+            <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
 </html>
