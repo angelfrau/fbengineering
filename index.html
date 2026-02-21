@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<!-- ESTILOS PARA QUE TODO FUNCIONE PERFECTO EN MÓVIL -->
+		<!-- ESTILOS PARA LOGO + TEXTO SIN CORTAR + MENU A LA IZQUIERDA -->
 		<style>
 			.intro-logo {
 				max-width: 260px;
@@ -20,20 +20,19 @@
 				line-height: 1.6;
 				font-size: 1.1rem;
 			}
-			/* Doble salto de línea + ajuste móvil para que "Based in Mallorca" NUNCA se corte */
 			@media screen and (max-width: 736px) {
 				.intro-logo { max-width: 220px; margin-bottom: 2rem; }
 				#intro h1 { font-size: 2.8rem; line-height: 1.1; }
 				#intro p { font-size: 1.25rem; }
 			}
-
-			/* MENU A LA IZQUIERDA (simétrico con el logo) - versión reforzada */
-			@media screen and (max-width: 980px) {
-				.navPanelToggle {
-					left: 1.5em !important;
-					right: auto !important;
-					position: absolute !important;
-				}
+			/* MENU A LA IZQUIERDA - FUERZA TOTAL */
+			.navPanelToggle,
+			a.navPanelToggle,
+			.navPanelToggle[href="#navPanel"] {
+				left: 1.5em !important;
+				right: auto !important;
+				position: fixed !important;
+				z-index: 9999 !important;
 			}
 		</style>
 	</head>
@@ -42,9 +41,9 @@
 		<!-- Wrapper -->
 		<div id="wrapper" class="fade-in">
 
-			<!-- INTRO MODIFICADA (exactamente lo que pediste) -->
+			<!-- INTRO -->
 			<div id="intro">
-				<img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
+				<img src="images/IMG_4928.jpeg" alt="Frau & Bär Engineering Logo" class="intro-logo" />
 
 				<h1>FRAU &amp; BÄR<br />
 				ENGINEERING</h1>
