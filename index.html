@@ -13,7 +13,6 @@
         }
 
         /* ================= HEADER ================= */
-
         #header {
             position: absolute;
             top: 0;
@@ -23,14 +22,13 @@
         }
 
         /* ================= IDIOMAS COMPACTOS ================= */
-
         .lang-selector {
             position: absolute;
             top: 0.9rem;
             right: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.4rem; /* Mucho más juntos */
+            gap: 0.4rem;
             font-size: 0.72rem;
             letter-spacing: 1px;
             color: #ccc;
@@ -56,8 +54,6 @@
         }
 
         /* ================= ELIMINAR HUECO MASIVO ================= */
-
-        /* Este era el culpable real */
         #intro {
             height: auto !important;
             min-height: unset !important;
@@ -65,7 +61,6 @@
             padding-bottom: 4rem !important;
         }
 
-        /* Quitamos efecto animación que empuja */
         #wrapper.fade-in #intro {
             transform: none !important;
         }
@@ -77,9 +72,7 @@
         }
 
         /* ================= MÓVIL ================= */
-
         @media screen and (max-width: 736px) {
-
             .lang-selector {
                 top: 0.8rem;
                 right: 1rem;
@@ -107,7 +100,6 @@
         }
 
         /* ================= MENÚ DESDE IZQUIERDA ================= */
-
         .navPanelToggle,
         a.navPanelToggle,
         [href="#navPanel"] {
@@ -135,7 +127,6 @@
 
     <!-- Header -->
     <header id="header">
-
         <!-- Idiomas -->
         <div class="lang-selector">
             <a href="#" class="active">ES</a>
@@ -146,7 +137,6 @@
             <span class="separator"></span>
             <a href="#">DE</a>
         </div>
-
     </header>
 
     <!-- Intro -->
@@ -177,11 +167,17 @@
     <!-- Main -->
     <div id="main">
 
+        <!-- ================= QUIÉNES SOMOS (YA ACTUALIZADO) ================= -->
         <section id="quienes-somos">
             <header class="major">
                 <h2>Quiénes Somos</h2>
             </header>
-            <p>Contenido de Quiénes Somos...</p>
+            
+            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong>.</p>
+            
+            <p>Somos Àngel Frau y Murti Bär, ingenieros industriales y socios fundadores. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
+            
+            <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
         </section>
 
         <section id="servicios">
