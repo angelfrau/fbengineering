@@ -24,7 +24,7 @@
         /* ================= IDIOMAS COMPACTOS ================= */
         .lang-selector {
             position: absolute;
-            top: 0.9rem;
+            top: 1.1rem; /* bajado para alinear con icono de menú */
             right: 1.5rem;
             display: flex;
             align-items: center;
@@ -71,10 +71,18 @@
             display: block;
         }
 
+        #intro h1 {
+            margin-bottom: 1rem;
+        }
+
+        #intro p {
+            margin-bottom: 2rem;
+        }
+
         /* ================= MÓVIL ================= */
         @media screen and (max-width: 736px) {
             .lang-selector {
-                top: 0.8rem;
+                top: 1rem; /* bajado en móvil */
                 right: 1rem;
                 gap: 0.3rem;
                 font-size: 0.68rem;
@@ -121,8 +129,8 @@
 
         /* ================= QUIENES SOMOS ================= */
         #quienes-somos {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
+            padding-top: 6rem; /* más espacio antes de la sección */
+            padding-bottom: 6rem; /* más espacio después de la sección */
         }
 
         #quienes-somos p {
@@ -132,13 +140,12 @@
 
         .team-container {
             display: flex;
-            flex-direction: column; /* por defecto apiladas */
+            flex-direction: column; /* apiladas por defecto */
             gap: 3rem;
             align-items: center;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
         }
 
-        /* Cada tarjeta */
         .team-member {
             text-align: center;
             max-width: 320px;
@@ -151,7 +158,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid rgba(255,255,255,0.15);
-            margin-bottom: 0.5rem; /* menos espacio con el nombre */
+            margin-bottom: 0.3rem; /* reducido aún más */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -161,7 +168,7 @@
         }
 
         .team-member h3 {
-            margin: 0.3rem 0 0.3rem; /* menos espacio arriba */
+            margin: 0.2rem 0 0.3rem;
             font-size: 1.4rem;
         }
 
@@ -176,7 +183,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Centrar botón */
         .team-member ul.actions {
             display: flex;
             justify-content: center;
@@ -192,11 +198,9 @@
         /* ================= HORIZONTAL EN ESCRITORIO ================= */
         @media screen and (min-width: 1024px) {
             .team-container {
-                flex-direction: column; /* primero Àngel arriba, Murti abajo */
+                flex-direction: column; /* Àngel arriba, Murti abajo */
                 gap: 4rem;
             }
-
-            /* Si quieres que estén lado a lado, podrías usar flex-direction: row; y ajustar orden */
         }
 
         @media screen and (max-width: 736px) {
@@ -229,7 +233,7 @@
     <div id="intro">
         <img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
         <h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
-        <p>a firm providing comprehensive engineering.<br /><br />Based in Mallorca</p>
+        <p>a firm providing comprehensive engineering</p>
         <ul class="actions">
             <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
         </ul>
@@ -258,7 +262,7 @@
                 <h2>Quiénes Somos</h2>
             </header>
 
-            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong>.</p>
+            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong></p>
 
             <p>Somos Àngel Frau y Murti Bär, ingenieros industriales y socios fundadores. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
 
