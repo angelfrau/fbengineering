@@ -12,96 +12,78 @@
             scroll-behavior: smooth;
         }
 
-        /* Header como barra flexible: logo izquierda + idiomas derecha */
+        /* HEADER limpio */
         #header {
             position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            z-index: 100;
+            padding: 2rem 2rem 0 2rem;
+            text-align: center;
         }
 
-        #header .logo {
-            margin: 0;
-        }
-
-        /* Selector de idiomas: misma línea, misma altura, pegado a la derecha */
+        /* Selector idiomas arriba derecha */
         .lang-selector {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
             display: flex;
-            align-items: center;
-            gap: 0.9rem;                /* espacio reducido entre idiomas */
-            font-size: 1rem;            /* mismo tamaño que el menú */
-            font-weight: normal;
-            color: #999999;
-            letter-spacing: 0.6px;
+            gap: 1rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #999;
         }
 
-        .lang-selector a.lang {
-            color: inherit;
+        .lang-selector a {
             text-decoration: none;
-            transition: color 0.18s ease;
+            color: inherit;
+            transition: 0.2s ease;
         }
 
-        .lang-selector a.lang:hover,
-        .lang-selector a.lang.active {
-            color: #ffffff;
+        .lang-selector a:hover,
+        .lang-selector a.active {
+            color: #fff;
         }
 
-        /* En móvil: ajustamos para que no se superponga con el botón menú */
-        @media (max-width: 736px) {
-            #header {
-                padding: 1rem 1.2rem;
-            }
-            .lang-selector {
-                gap: 0.7rem;
-                font-size: 0.95rem;
-            }
-            /* Si el botón menú aparece, dejamos espacio */
-            .lang-selector {
-                margin-right: 3.5rem;   /* evita choque con el botón hamburguesa */
-            }
+        /* Intro */
+        #intro {
+            padding-top: 6rem;
         }
 
-        /* Estilos del logo introductorio */
         .intro-logo {
-            max-width: 360px;
+            max-width: 340px;
             height: auto;
-            margin: 0.8rem auto 1.8rem auto;
+            margin: 1rem auto 2rem auto;
             display: block;
         }
 
-        #intro p {
-            margin-top: 1rem;
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
+        /* Ajustes móvil */
         @media screen and (max-width: 736px) {
-            .intro-logo {
-                max-width: 290px;
-                margin: 0.6rem auto 1.5rem auto;
+
+            .lang-selector {
+                top: 1.2rem;
+                right: 1.2rem;
+                font-size: 0.8rem;
             }
+
+            .intro-logo {
+                max-width: 260px;
+            }
+
             #intro h1 {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
                 line-height: 1.1;
             }
-            #intro p {
-                font-size: 1.25rem;
-            }
         }
 
-        /* Botón menú pegado a la izquierda */
+        /* Botón menú izquierda */
         .navPanelToggle,
         a.navPanelToggle,
         [href="#navPanel"] {
-            left: 0.4em !important;
+            left: 0.6em !important;
             right: auto !important;
             position: fixed !important;
             z-index: 99999 !important;
         }
 
-        /* Panel menú desliza de izquierda a derecha */
+        /* Panel desde izquierda */
         #navPanel {
             left: 0 !important;
             right: auto !important;
@@ -111,136 +93,125 @@
         .is-navPanel-visible #navPanel {
             transform: translateX(0) !important;
         }
-
-        /* X de cerrar arriba a la derecha en el panel */
-        #navPanel .close {
-            position: absolute !important;
-            top: 1.2em !important;
-            right: 1.5em !important;
-            left: auto !important;
-            font-size: 2.2rem;
-            color: #fff;
-        }
     </style>
 </head>
+
 <body class="is-preload">
 
-    <div id="wrapper" class="fade-in">
+<div id="wrapper" class="fade-in">
 
-        <!-- Header con logo + selector de idiomas alineados -->
-        <header id="header">
-            <a href="index.html" class="logo">Massively</a>
+    <!-- Header -->
+    <header id="header">
 
-            <!-- Selector idiomas pegado a la derecha, misma altura -->
-            <div class="lang-selector">
-                <a href="#" class="lang active">ES</a>
-                <a href="#" class="lang">CA</a>
-                <a href="#" class="lang">EN</a>
-                <a href="#" class="lang">DE</a>
-            </div>
-        </header>
-
-        <!-- Intro -->
-        <div id="intro">
-            <img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
-            <h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
-            <p>a firm providing comprehensive engineering.<br /><br />
-            Based in Mallorca</p>
-            <ul class="actions">
-                <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-            </ul>
+        <!-- Selector idiomas -->
+        <div class="lang-selector">
+            <a href="#" class="active">ES</a>
+            <a href="#">CA</a>
+            <a href="#">EN</a>
+            <a href="#">DE</a>
         </div>
 
-        <!-- Nav -->
-        <nav id="nav">
-            <ul class="links">
-                <li class="active"><a href="#quienes-somos">QUIENES SOMOS</a></li>
-                <li><a href="#servicios">SERVICIOS</a></li>
-                <li><a href="#proyectos">PROYECTOS</a></li>
-                <li><a href="#contacto">CONTACTO</a></li>
-            </ul>
-            <ul class="icons">
-                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-            </ul>
-        </nav>
+    </header>
 
-        <!-- Main con secciones -->
-        <div id="main">
-            <!-- Aquí van tus secciones: quienes-somos, servicios, proyectos, contacto -->
-            <!-- Puedes pegar el contenido anterior o dejarlo como estaba -->
+    <!-- Intro -->
+    <div id="intro">
+        <img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
+        <h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
+        <p>a firm providing comprehensive engineering.<br /><br />
+        Based in Mallorca</p>
+        <ul class="actions">
+            <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+        </ul>
+    </div>
 
-            <section id="quienes-somos">
-                <header class="major">
-                    <h2>Quiénes Somos</h2>
-                </header>
-                <p>Contenido de Quiénes Somos...</p>
-            </section>
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li class="active"><a href="#quienes-somos">QUIENES SOMOS</a></li>
+            <li><a href="#servicios">SERVICIOS</a></li>
+            <li><a href="#proyectos">PROYECTOS</a></li>
+            <li><a href="#contacto">CONTACTO</a></li>
+        </ul>
+        <ul class="icons">
+            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        </ul>
+    </nav>
 
-            <section id="servicios">
-                <header class="major">
-                    <h2>Servicios</h2>
-                </header>
-                <p>Contenido de Servicios...</p>
-            </section>
+    <!-- Main -->
+    <div id="main">
 
-            <section id="proyectos">
-                <header class="major">
-                    <h2>Proyectos</h2>
-                </header>
-                <!-- Tus posts y featured aquí -->
-            </section>
+        <section id="quienes-somos">
+            <header class="major">
+                <h2>Quiénes Somos</h2>
+            </header>
+            <p>Contenido de Quiénes Somos...</p>
+        </section>
 
-            <section id="contacto">
-                <header class="major">
-                    <h2>Contacto</h2>
-                </header>
-                <form method="post" action="#">
-                    <div class="fields">
-                        <div class="field">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" />
-                        </div>
-                        <div class="field">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" />
-                        </div>
-                        <div class="field">
-                            <label for="message">Mensaje</label>
-                            <textarea name="message" id="message" rows="3"></textarea>
-                        </div>
+        <section id="servicios">
+            <header class="major">
+                <h2>Servicios</h2>
+            </header>
+            <p>Contenido de Servicios...</p>
+        </section>
+
+        <section id="proyectos">
+            <header class="major">
+                <h2>Proyectos</h2>
+            </header>
+            <p>Contenido de Proyectos...</p>
+        </section>
+
+        <section id="contacto">
+            <header class="major">
+                <h2>Contacto</h2>
+            </header>
+            <form method="post" action="#">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Nombre</label>
+                        <input type="text" name="name" id="name" />
                     </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Enviar" /></li>
-                    </ul>
-                </form>
-            </section>
-        </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <section class="split contact">
-                <!-- Tu info de contacto -->
-            </section>
-        </footer>
-
-        <div id="copyright">
-            <ul>
-                <li>&copy; Frau & Bär Engineering</li>
-                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-            </ul>
-        </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" />
+                    </div>
+                    <div class="field">
+                        <label for="message">Mensaje</label>
+                        <textarea name="message" id="message" rows="3"></textarea>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Enviar" /></li>
+                </ul>
+            </form>
+        </section>
 
     </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Footer -->
+    <footer id="footer">
+        <section class="split contact">
+        </section>
+    </footer>
+
+    <div id="copyright">
+        <ul>
+            <li>&copy; Frau & Bär Engineering</li>
+            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
