@@ -12,68 +12,93 @@
             scroll-behavior: smooth;
         }
 
-        /* HEADER limpio */
+        /* ================= HEADER ================= */
+
         #header {
             position: relative;
-            padding: 2rem 2rem 0 2rem;
+            padding: 1.2rem 2rem 0 2rem;
             text-align: center;
         }
 
-        /* Selector idiomas arriba derecha */
+        /* ================= IDIOMAS ULTRA FINOS ================= */
+
         .lang-selector {
             position: absolute;
-            top: 2rem;
+            top: 1.2rem;
             right: 2rem;
             display: flex;
-            gap: 1rem;
-            font-size: 0.9rem;
+            align-items: center;
+            font-size: 0.85rem;
             letter-spacing: 1px;
-            color: #999;
+            color: #aaa;
         }
 
         .lang-selector a {
-            text-decoration: none;
+            text-decoration: none !important;
+            border-bottom: none !important;
             color: inherit;
-            transition: 0.2s ease;
+            padding: 0 0.6rem;
+            position: relative;
+            transition: 0.25s ease;
         }
 
         .lang-selector a:hover,
         .lang-selector a.active {
-            color: #fff;
+            color: #ffffff;
         }
 
-        /* Intro */
+        /* Separador vertical ultra fino */
+        .lang-selector a:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -0.3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 12px;
+            background: #444;
+        }
+
+        /* ================= INTRO ================= */
+
+        /* Eliminamos el espacio masivo */
         #intro {
-            padding-top: 6rem;
+            padding-top: 1.5rem !important;
+            margin-top: 0 !important;
         }
 
         .intro-logo {
             max-width: 340px;
-            height: auto;
-            margin: 1rem auto 2rem auto;
+            margin: 0 auto 1.5rem auto;
             display: block;
         }
 
-        /* Ajustes móvil */
+        /* ================= MÓVIL ================= */
+
         @media screen and (max-width: 736px) {
 
             .lang-selector {
-                top: 1.2rem;
+                top: 1rem;
                 right: 1.2rem;
-                font-size: 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            #intro {
+                padding-top: 1rem !important;
             }
 
             .intro-logo {
-                max-width: 260px;
+                max-width: 250px;
             }
 
             #intro h1 {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
                 line-height: 1.1;
             }
         }
 
-        /* Botón menú izquierda */
+        /* ================= MENÚ DESDE IZQUIERDA ================= */
+
         .navPanelToggle,
         a.navPanelToggle,
         [href="#navPanel"] {
@@ -83,7 +108,6 @@
             z-index: 99999 !important;
         }
 
-        /* Panel desde izquierda */
         #navPanel {
             left: 0 !important;
             right: auto !important;
@@ -103,7 +127,7 @@
     <!-- Header -->
     <header id="header">
 
-        <!-- Selector idiomas -->
+        <!-- Selector idiomas ultra minimal -->
         <div class="lang-selector">
             <a href="#" class="active">ES</a>
             <a href="#">CA</a>
@@ -189,10 +213,8 @@
 
     </div>
 
-    <!-- Footer -->
     <footer id="footer">
-        <section class="split contact">
-        </section>
+        <section class="split contact"></section>
     </footer>
 
     <div id="copyright">
@@ -204,7 +226,6 @@
 
 </div>
 
-<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
