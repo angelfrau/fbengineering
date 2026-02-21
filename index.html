@@ -24,7 +24,7 @@
         /* ================= IDIOMAS COMPACTOS ================= */
         .lang-selector {
             position: absolute;
-            top: 1.1rem; /* bajado para alinear con icono de menú */
+            top: 1.1rem; /* alineado con icono de menú */
             right: 1.5rem;
             display: flex;
             align-items: center;
@@ -82,7 +82,7 @@
         /* ================= MÓVIL ================= */
         @media screen and (max-width: 736px) {
             .lang-selector {
-                top: 1rem; /* bajado en móvil */
+                top: 1rem;
                 right: 1rem;
                 gap: 0.3rem;
                 font-size: 0.68rem;
@@ -129,8 +129,8 @@
 
         /* ================= QUIENES SOMOS ================= */
         #quienes-somos {
-            padding-top: 6rem; /* más espacio antes de la sección */
-            padding-bottom: 6rem; /* más espacio después de la sección */
+            padding-top: 6rem;
+            padding-bottom: 6rem;
         }
 
         #quienes-somos p {
@@ -158,7 +158,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid rgba(255,255,255,0.15);
-            margin-bottom: 0.3rem; /* reducido aún más */
+            margin-bottom: 0.2rem; /* espacio mínimo */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -183,6 +183,7 @@
             margin-bottom: 1rem;
         }
 
+        /* Centrar el botón dentro de la tarjeta */
         .team-member ul.actions {
             display: flex;
             justify-content: center;
@@ -198,7 +199,7 @@
         /* ================= HORIZONTAL EN ESCRITORIO ================= */
         @media screen and (min-width: 1024px) {
             .team-container {
-                flex-direction: column; /* Àngel arriba, Murti abajo */
+                flex-direction: column; /* Murti arriba, Àngel abajo */
                 gap: 4rem;
             }
         }
@@ -264,28 +265,30 @@
 
             <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong></p>
 
-            <p>Somos Àngel Frau y Murti Bär, ingenieros industriales y socios fundadores. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
+            <p>Somos Murti Bär y Àngel Frau, ingenieros industriales y socios fundadores. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
 
             <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
 
             <div class="team-container">
-                <div class="team-member">
-                    <img src="images/angel.png" alt="Àngel Frau" class="circle-img" />
-                    <h3>Àngel Frau</h3>
-                    <div class="role">Ingeniero Industrial – Socio Fundador</div>
-                    <p>Con 7 años de experiencia liderando proyectos integrales de ingeniería, desde el diseño conceptual hasta la ejecución y puesta en marcha. Apasionado por soluciones técnicas eficientes y la transformación digital en el sector.</p>
-                    <ul class="actions">
-                        <li><a href="https://es.linkedin.com/in/angel-frau-40b999179" target="_blank" class="button small">Ver perfil LinkedIn</a></li>
-                    </ul>
-                </div>
-
+                <!-- Murti arriba -->
                 <div class="team-member">
                     <img src="images/murti.png" alt="Murti Bär" class="circle-img" />
                     <h3>Murti Bär</h3>
-                    <div class="role">Ingeniero Industrial – Socio Fundador</div>
+                    <div class="role">Ingeniero Industrial</div>
                     <p>4 años de experiencia en investigación y desarrollo de redes energéticas, con enfoque en sistemas fotovoltaicos, baterías, eficiencia energética y digitalización de procesos energéticos.</p>
                     <ul class="actions">
                         <li><a href="https://es.linkedin.com/in/murti-b%C3%A4r" target="_blank" class="button small">Ver perfil LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Àngel abajo -->
+                <div class="team-member">
+                    <img src="images/angel.png" alt="Àngel Frau" class="circle-img" />
+                    <h3>Àngel Frau</h3>
+                    <div class="role">Ingeniero Industrial</div>
+                    <p>Con 7 años de experiencia liderando proyectos integrales de ingeniería, desde el diseño conceptual hasta la ejecución y puesta en marcha. Apasionado por soluciones técnicas eficientes y la transformación digital en el sector.</p>
+                    <ul class="actions">
+                        <li><a href="https://es.linkedin.com/in/angel-frau-40b999179" target="_blank" class="button small">Ver perfil LinkedIn</a></li>
                     </ul>
                 </div>
             </div>
