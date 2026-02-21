@@ -16,18 +16,19 @@
 
         #header {
             position: relative;
-            padding: 1.2rem 2rem 0 2rem;
-            text-align: center;
+            padding: 1rem 2rem 0 2rem;
+            margin: 0;
         }
 
-        /* ================= IDIOMAS ULTRA FINOS ================= */
+        /* ================= IDIOMAS SIMÉTRICOS ================= */
 
         .lang-selector {
             position: absolute;
-            top: 1.2rem;
+            top: 1rem;
             right: 2rem;
             display: flex;
             align-items: center;
+            gap: 1rem;
             font-size: 0.85rem;
             letter-spacing: 1px;
             color: #aaa;
@@ -35,10 +36,9 @@
 
         .lang-selector a {
             text-decoration: none !important;
-            border-bottom: none !important;
+            border: none !important;
             color: inherit;
-            padding: 0 0.6rem;
-            position: relative;
+            padding: 0;
             transition: 0.25s ease;
         }
 
@@ -47,24 +47,23 @@
             color: #ffffff;
         }
 
-        /* Separador vertical ultra fino */
-        .lang-selector a:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            right: -0.3rem;
-            top: 50%;
-            transform: translateY(-50%);
+        .separator {
             width: 1px;
-            height: 12px;
+            height: 14px;
             background: #444;
         }
 
-        /* ================= INTRO ================= */
+        /* ================= INTRO (SIN ESPACIO MASIVO) ================= */
 
-        /* Eliminamos el espacio masivo */
         #intro {
-            padding-top: 1.5rem !important;
-            margin-top: 0 !important;
+            padding: 2rem 2rem 3rem 2rem !important;
+            margin: 0 !important;
+            min-height: auto !important;
+        }
+
+        /* Eliminamos efecto que genera hueco inicial */
+        #wrapper.fade-in #intro {
+            transform: none !important;
         }
 
         .intro-logo {
@@ -78,13 +77,14 @@
         @media screen and (max-width: 736px) {
 
             .lang-selector {
-                top: 1rem;
+                top: 0.8rem;
                 right: 1.2rem;
+                gap: 0.8rem;
                 font-size: 0.75rem;
             }
 
             #intro {
-                padding-top: 1rem !important;
+                padding: 1.5rem 1.2rem 2rem 1.2rem !important;
             }
 
             .intro-logo {
@@ -127,11 +127,14 @@
     <!-- Header -->
     <header id="header">
 
-        <!-- Selector idiomas ultra minimal -->
+        <!-- Idiomas -->
         <div class="lang-selector">
             <a href="#" class="active">ES</a>
+            <span class="separator"></span>
             <a href="#">CA</a>
+            <span class="separator"></span>
             <a href="#">EN</a>
+            <span class="separator"></span>
             <a href="#">DE</a>
         </div>
 
