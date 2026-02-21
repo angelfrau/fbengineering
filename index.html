@@ -8,6 +8,8 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
 		<style>
+			html { scroll-behavior: smooth; }
+
 			.intro-logo {
 				max-width: 360px;
 				height: auto;
@@ -25,17 +27,15 @@
 				#intro p { font-size: 1.25rem; }
 			}
 
-			/* MENU MÁS PEGADO A LA IZQUIERDA */
+			/* MENU MÁS PEGADO A LA IZQUIERDA + DESPLIEGUE IZQUIERDA → DERECHA */
 			.navPanelToggle,
 			a.navPanelToggle,
 			[href="#navPanel"] {
-				left: 0.8em !important;
+				left: 0.4em !important;   /* aún más pegado al borde */
 				right: auto !important;
 				position: fixed !important;
 				z-index: 99999 !important;
 			}
-
-			/* PANEL SE DESPLIEGA DE IZQUIERDA A DERECHA */
 			#navPanel {
 				left: 0 !important;
 				right: auto !important;
@@ -43,6 +43,15 @@
 			}
 			.is-navPanel-visible #navPanel {
 				transform: translateX(0) !important;
+			}
+			/* X de cerrar arriba a la derecha */
+			#navPanel .close {
+				position: absolute !important;
+				top: 1.2em !important;
+				right: 1.5em !important;
+				left: auto !important;
+				font-size: 2.2rem;
+				color: #fff;
 			}
 		</style>
 	</head>
@@ -53,9 +62,7 @@
 			<!-- INTRO -->
 			<div id="intro">
 				<img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
-
-				<h1>FRAU &amp; BÄR<br />
-				ENGINEERING</h1>
+				<h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
 				<p>a firm providing comprehensive engineering.<br /><br />
 				Based in Mallorca</p>
 				<ul class="actions">
@@ -68,12 +75,13 @@
 				<a href="index.html" class="logo">Massively</a>
 			</header>
 
-			<!-- Nav -->
+			<!-- NAV ACTUALIZADO (enlaces a secciones de la misma página) -->
 			<nav id="nav">
 				<ul class="links">
-					<li class="active"><a href="index.html">Frau & Bär Engineering</a></li>
-					<li><a href="generic.html">Generic Page</a></li>
-					<li><a href="elements.html">Elements Reference</a></li>
+					<li class="active"><a href="#quienes-somos">QUIENES SOMOS</a></li>
+					<li><a href="#servicios">SERVICIOS</a></li>
+					<li><a href="#proyectos">PROYECTOS</a></li>
+					<li><a href="#contacto">CONTACTO</a></li>
 				</ul>
 				<ul class="icons">
 					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -81,22 +89,75 @@
 				</ul>
 			</nav>
 
-			<!-- Main (todo tu contenido original) -->
+			<!-- MAIN CON SECCIONES -->
 			<div id="main">
-				<!-- Featured Post + Posts + Footer de pagination -->
-				<!-- (todo igual que antes, lo dejo completo para que no falte nada) -->
-				<article class="post featured"> ... </article>
-				<section class="posts"> ... </section>
-				<footer> ... </footer>
+
+				<!-- QUIENES SOMOS -->
+				<section id="quienes-somos">
+					<header class="major">
+						<h2>Quiénes Somos</h2>
+					</header>
+					<p>Frau & Bär Engineering es una firma de ingeniería integral con sede en Mallorca. Combinamos la precisión alemana con la innovación mediterránea para ofrecer soluciones sostenibles en ingeniería civil, mecánica, eléctrica y medioambiental.</p>
+				</section>
+
+				<!-- SERVICIOS -->
+				<section id="servicios">
+					<header class="major">
+						<h2>Servicios</h2>
+					</header>
+					<p>Ofrecemos servicios completos de ingeniería:</p>
+					<ul>
+						<li>Ingeniería Civil y Estructural</li>
+						<li>MEP (Mecánica, Eléctrica, Plomería)</li>
+						<li>Energías Renovables (solar, eólica)</li>
+						<li>Reformas sostenibles y eficiencia energética</li>
+						<li>Gestión de proyectos y permisos</li>
+					</ul>
+				</section>
+
+				<!-- PROYECTOS (tu contenido actual) -->
+				<section id="proyectos">
+					<header class="major">
+						<h2>Proyectos</h2>
+					</header>
+					<!-- Featured Post -->
+					<article class="post featured"> ... (tu featured post original) </article>
+					<!-- Posts -->
+					<section class="posts"> ... (tus 6 posts originales) </section>
+				</section>
+
+				<!-- CONTACTO -->
+				<section id="contacto">
+					<header class="major">
+						<h2>Contacto</h2>
+					</header>
+					<!-- Aquí va tu formulario -->
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field"><label for="name">Name</label><input type="text" name="name" id="name" /></div>
+							<div class="field"><label for="email">Email</label><input type="text" name="email" id="email" /></div>
+							<div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3"></textarea></div>
+						</div>
+						<ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
+					</form>
+				</section>
+
 			</div>
 
-			<!-- Footer y Copyright -->
-			<footer id="footer"> ... </footer>
-			<div id="copyright"> ... </div>
+			<!-- Footer y Copyright (sin formulario, ya está en la sección Contacto) -->
+			<footer id="footer">
+				<section class="split contact">
+					<!-- tu información de contacto (dirección, teléfono, etc.) -->
+				</section>
+			</footer>
+
+			<div id="copyright">
+				<ul><li>&copy; 2026 Frau &amp; Bär Engineering S.L.</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+			</div>
 
 		</div>
 
-		<!-- Scripts de la plantilla -->
+		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -104,27 +165,6 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-
-		<!-- SCRIPT EXTRA PARA FORZAR MENÚ DESDE LA IZQUIERDA -->
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				// Forzar botón MENU a la izquierda
-				const toggle = document.querySelector('.navPanelToggle') || document.querySelector('a[href="#navPanel"]');
-				if (toggle) {
-					toggle.style.left = '0.8em';
-					toggle.style.right = 'auto';
-					toggle.style.position = 'fixed';
-				}
-
-				// Forzar panel a deslizarse desde la izquierda
-				const panel = document.getElementById('navPanel');
-				if (panel) {
-					panel.style.left = '0';
-					panel.style.right = 'auto';
-					panel.style.transform = 'translateX(-100%)';
-				}
-			});
-		</script>
 
 	</body>
 </html>
