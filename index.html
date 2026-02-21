@@ -118,6 +118,69 @@
         .is-navPanel-visible #navPanel {
             transform: translateX(0) !important;
         }
+
+        /* ================= NUEVO: ESTILO PARA QUIENES SOMOS ================= */
+        #quienes-somos p {
+            line-height: 1.5;          /* menos interlineado */
+            margin-bottom: 1rem;       /* menos espacio entre párrafos */
+        }
+
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .team-member {
+            text-align: center;
+            max-width: 320px;
+            flex: 1 1 280px;
+        }
+
+        .circle-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.15);
+            margin-bottom: 1.2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .circle-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(255,255,255,0.25);
+        }
+
+        .team-member h3 {
+            margin: 0.5rem 0 0.3rem;
+            font-size: 1.4rem;
+        }
+
+        .team-member .role {
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-member a.button {
+            font-size: 0.85rem;
+            padding: 0.5rem 1.2rem;
+        }
+
+        @media screen and (max-width: 736px) {
+            .team-container {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -167,7 +230,7 @@
     <!-- Main -->
     <div id="main">
 
-        <!-- ================= QUIÉNES SOMOS (YA ACTUALIZADO) ================= -->
+        <!-- QUIÉNES SOMOS (texto más compacto + tarjetas horizontales) -->
         <section id="quienes-somos">
             <header class="major">
                 <h2>Quiénes Somos</h2>
@@ -178,6 +241,29 @@
             <p>Somos Àngel Frau y Murti Bär, ingenieros industriales y socios fundadores. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
             
             <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
+
+            <!-- Tarjetas de socios en horizontal -->
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQH0Z0Z0Z0Z0Z0/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/..." alt="Àngel Frau" class="circle-img" /> <!-- Reemplaza con tu foto real subida a images/angel-frau.jpg -->
+                    <h3>Àngel Frau</h3>
+                    <div class="role">Ingeniero Industrial – Socio Fundador</div>
+                    <p>Con 7 años de experiencia liderando proyectos integrales de ingeniería, desde el diseño conceptual hasta la ejecución y puesta en marcha. Apasionado por soluciones técnicas eficientes y la transformación digital en el sector.</p>
+                    <ul class="actions">
+                        <li><a href="https://es.linkedin.com/in/angel-frau-40b999179" target="_blank" class="button small">Ver perfil LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <img src="https://media.licdn.com/dms/image/.../profile-displayphoto-shrink_800_800/..." alt="Murti Bär" class="circle-img" /> <!-- Reemplaza con foto de Murti subida a images/murti-baer.jpg -->
+                    <h3>Murti Bär</h3>
+                    <div class="role">Ingeniero Industrial – Socio Fundador</div>
+                    <p>4 años de experiencia en investigación y desarrollo de redes energéticas, con enfoque en sistemas fotovoltaicos, baterías, eficiencia energética y digitalización de procesos energéticos.</p>
+                    <ul class="actions">
+                        <li><a href="https://es.linkedin.com/in/murti-b%C3%A4r" target="_blank" class="button small">Ver perfil LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="servicios">
