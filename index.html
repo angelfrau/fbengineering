@@ -119,7 +119,12 @@
             transform: translateX(0) !important;
         }
 
-        /* ================= NUEVO: ESTILO PARA QUIENES SOMOS ================= */
+        /* ================= QUIENES SOMOS ================= */
+        #quienes-somos {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
         #quienes-somos p {
             line-height: 1.5;
             margin-bottom: 1rem;
@@ -127,16 +132,17 @@
 
         .team-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column; /* por defecto apiladas */
             gap: 3rem;
+            align-items: center;
             margin-top: 2.5rem;
         }
 
+        /* Cada tarjeta */
         .team-member {
             text-align: center;
             max-width: 320px;
-            flex: 1 1 280px;
+            flex: 0 0 auto;
         }
 
         .circle-img {
@@ -145,7 +151,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid rgba(255,255,255,0.15);
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.5rem; /* menos espacio con el nombre */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -155,7 +161,7 @@
         }
 
         .team-member h3 {
-            margin: 0.5rem 0 0.3rem;
+            margin: 0.3rem 0 0.3rem; /* menos espacio arriba */
             font-size: 1.4rem;
         }
 
@@ -170,9 +176,27 @@
             margin-bottom: 1rem;
         }
 
+        /* Centrar botón */
+        .team-member ul.actions {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
         .team-member a.button {
             font-size: 0.85rem;
             padding: 0.5rem 1.2rem;
+        }
+
+        /* ================= HORIZONTAL EN ESCRITORIO ================= */
+        @media screen and (min-width: 1024px) {
+            .team-container {
+                flex-direction: column; /* primero Àngel arriba, Murti abajo */
+                gap: 4rem;
+            }
+
+            /* Si quieres que estén lado a lado, podrías usar flex-direction: row; y ajustar orden */
         }
 
         @media screen and (max-width: 736px) {
@@ -190,7 +214,6 @@
 
     <!-- Header -->
     <header id="header">
-        <!-- Idiomas -->
         <div class="lang-selector">
             <a href="#" class="active">ES</a>
             <span class="separator"></span>
@@ -206,8 +229,7 @@
     <div id="intro">
         <img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
         <h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
-        <p>a firm providing comprehensive engineering.<br /><br />
-        Based in Mallorca</p>
+        <p>a firm providing comprehensive engineering.<br /><br />Based in Mallorca</p>
         <ul class="actions">
             <li><a href="#nav" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
         </ul>
@@ -235,14 +257,13 @@
             <header class="major">
                 <h2>Quiénes Somos</h2>
             </header>
-            
+
             <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong>.</p>
-            
+
             <p>Somos Àngel Frau y Murti Bär, ingenieros industriales y socios fundadores. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
-            
+
             <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
 
-            <!-- Tarjetas de socios -->
             <div class="team-container">
                 <div class="team-member">
                     <img src="images/angel.png" alt="Àngel Frau" class="circle-img" />
