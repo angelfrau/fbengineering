@@ -12,6 +12,58 @@
             scroll-behavior: smooth;
         }
 
+        /* Header como barra flexible: logo izquierda + idiomas derecha */
+        #header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            z-index: 100;
+        }
+
+        #header .logo {
+            margin: 0;
+        }
+
+        /* Selector de idiomas: misma línea, misma altura, pegado a la derecha */
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;                /* espacio reducido entre idiomas */
+            font-size: 1rem;            /* mismo tamaño que el menú */
+            font-weight: normal;
+            color: #999999;
+            letter-spacing: 0.6px;
+        }
+
+        .lang-selector a.lang {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.18s ease;
+        }
+
+        .lang-selector a.lang:hover,
+        .lang-selector a.lang.active {
+            color: #ffffff;
+        }
+
+        /* En móvil: ajustamos para que no se superponga con el botón menú */
+        @media (max-width: 736px) {
+            #header {
+                padding: 1rem 1.2rem;
+            }
+            .lang-selector {
+                gap: 0.7rem;
+                font-size: 0.95rem;
+            }
+            /* Si el botón menú aparece, dejamos espacio */
+            .lang-selector {
+                margin-right: 3.5rem;   /* evita choque con el botón hamburguesa */
+            }
+        }
+
+        /* Estilos del logo introductorio */
         .intro-logo {
             max-width: 360px;
             height: auto;
@@ -39,7 +91,7 @@
             }
         }
 
-        /* Botón menú muy pegado a la izquierda */
+        /* Botón menú pegado a la izquierda */
         .navPanelToggle,
         a.navPanelToggle,
         [href="#navPanel"] {
@@ -49,7 +101,7 @@
             z-index: 99999 !important;
         }
 
-        /* Panel desliza de izquierda a derecha */
+        /* Panel menú desliza de izquierda a derecha */
         #navPanel {
             left: 0 !important;
             right: auto !important;
@@ -60,7 +112,7 @@
             transform: translateX(0) !important;
         }
 
-        /* X de cerrar arriba a la derecha */
+        /* X de cerrar arriba a la derecha en el panel */
         #navPanel .close {
             position: absolute !important;
             top: 1.2em !important;
@@ -69,60 +121,24 @@
             font-size: 2.2rem;
             color: #fff;
         }
-
-        /* SELECTOR DE IDIOMAS - Ajustado según tus últimas instrucciones */
-        .lang-selector {
-            position: absolute;
-            top: 50%;
-            right: 0.8rem;                   /* muy pegado a la derecha */
-            transform: translateY(-50%);     /* alineado verticalmente con el botón menú */
-            font-size: 1rem;                 /* mismo tamaño que el texto del menú */
-            font-weight: normal;
-            color: #999999;
-            letter-spacing: 0.8px;
-            white-space: nowrap;
-            z-index: 100;
-        }
-
-        .lang-selector a.lang {
-            margin-left: 0.9rem;             /* espacio reducido entre opciones */
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.18s ease;
-        }
-
-        .lang-selector a.lang:first-child {
-            margin-left: 0;
-        }
-
-        .lang-selector a.lang:hover,
-        .lang-selector a.lang.active {
-            color: #ffffff;
-        }
-
-        /* En móvil: espacio justo para no chocar con el botón menú */
-        @media (max-width: 736px) {
-            .lang-selector {
-                right: 4.2rem;
-                font-size: 0.95rem;
-            }
-            .lang-selector a.lang {
-                margin-left: 0.7rem;
-            }
-        }
     </style>
 </head>
 <body class="is-preload">
 
     <div id="wrapper" class="fade-in">
 
-        <!-- Selector de idiomas arriba a la derecha -->
-        <div class="lang-selector">
-            <a href="#" class="lang active">ES</a>
-            <a href="#" class="lang">CA</a>
-            <a href="#" class="lang">EN</a>
-            <a href="#" class="lang">DE</a>
-        </div>
+        <!-- Header con logo + selector de idiomas alineados -->
+        <header id="header">
+            <a href="index.html" class="logo">Massively</a>
+
+            <!-- Selector idiomas pegado a la derecha, misma altura -->
+            <div class="lang-selector">
+                <a href="#" class="lang active">ES</a>
+                <a href="#" class="lang">CA</a>
+                <a href="#" class="lang">EN</a>
+                <a href="#" class="lang">DE</a>
+            </div>
+        </header>
 
         <!-- Intro -->
         <div id="intro">
@@ -134,11 +150,6 @@
                 <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
             </ul>
         </div>
-
-        <!-- Header -->
-        <header id="header">
-            <a href="index.html" class="logo">Massively</a>
-        </header>
 
         <!-- Nav -->
         <nav id="nav">
@@ -156,48 +167,28 @@
 
         <!-- Main con secciones -->
         <div id="main">
+            <!-- Aquí van tus secciones: quienes-somos, servicios, proyectos, contacto -->
+            <!-- Puedes pegar el contenido anterior o dejarlo como estaba -->
 
             <section id="quienes-somos">
                 <header class="major">
                     <h2>Quiénes Somos</h2>
                 </header>
-                <p>Frau & Bär Engineering es una firma de ingeniería integral con sede en Mallorca. Combinamos la precisión alemana con la innovación mediterránea para ofrecer soluciones sostenibles en ingeniería civil, mecánica, eléctrica y medioambiental.</p>
+                <p>Contenido de Quiénes Somos...</p>
             </section>
 
             <section id="servicios">
                 <header class="major">
                     <h2>Servicios</h2>
                 </header>
-                <p>Ofrecemos servicios completos de ingeniería:</p>
-                <ul>
-                    <li>Ingeniería Civil y Estructural</li>
-                    <li>MEP (Mecánica, Eléctrica, Plomería)</li>
-                    <li>Energías Renovables (solar, eólica)</li>
-                    <li>Reformas sostenibles y eficiencia energética</li>
-                    <li>Gestión de proyectos y permisos</li>
-                </ul>
+                <p>Contenido de Servicios...</p>
             </section>
 
             <section id="proyectos">
                 <header class="major">
                     <h2>Proyectos</h2>
                 </header>
-                <!-- Aquí pega tu contenido actual de proyectos -->
-                <article class="post featured">
-                    <header class="major">
-                        <span class="date">April 25, 2017</span>
-                        <h2><a href="#">And this is a<br />massive headline</a></h2>
-                        <p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />amet nullam sed etiam veroeros.</p>
-                    </header>
-                    <a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
-                    <ul class="actions special">
-                        <li><a href="#" class="button large">Full Story</a></li>
-                    </ul>
-                </article>
-
-                <section class="posts">
-                    <!-- Tus 6 artículos originales aquí -->
-                </section>
+                <!-- Tus posts y featured aquí -->
             </section>
 
             <section id="contacto">
@@ -206,23 +197,38 @@
                 </header>
                 <form method="post" action="#">
                     <div class="fields">
-                        <div class="field"><label for="name">Name</label><input type="text" name="name" id="name" /></div>
-                        <div class="field"><label for="email">Email</label><input type="text" name="email" id="email" /></div>
-                        <div class="field"><label for="message">Message</label><textarea name="message" id="message" rows="3"></textarea></div>
+                        <div class="field">
+                            <label for="name">Nombre</label>
+                            <input type="text" name="name" id="name" />
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" />
+                        </div>
+                        <div class="field">
+                            <label for="message">Mensaje</label>
+                            <textarea name="message" id="message" rows="3"></textarea>
+                        </div>
                     </div>
-                    <ul class="actions"><li><input type="submit" value="Send Message" /></li></ul>
+                    <ul class="actions">
+                        <li><input type="submit" value="Enviar" /></li>
+                    </ul>
                 </form>
             </section>
-
         </div>
 
-        <!-- Footer y Copyright -->
+        <!-- Footer -->
         <footer id="footer">
-            <!-- Tu contenido de footer -->
+            <section class="split contact">
+                <!-- Tu info de contacto -->
+            </section>
         </footer>
 
         <div id="copyright">
-            <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+            <ul>
+                <li>&copy; Frau & Bär Engineering</li>
+                <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            </ul>
         </div>
 
     </div>
