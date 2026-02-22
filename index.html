@@ -53,16 +53,12 @@
             background: rgba(255,255,255,0.25);
         }
 
-        /* ================= ELIMINAR HUECO MASIVO ================= */
+        /* ================= INTRO ================= */
         #intro {
             height: auto !important;
             min-height: unset !important;
             padding-top: 4rem !important;
             padding-bottom: 4rem !important;
-        }
-
-        #wrapper.fade-in #intro {
-            transform: none !important;
         }
 
         .intro-logo {
@@ -71,75 +67,81 @@
             display: block;
         }
 
-        #intro h1 {
-            margin-bottom: 1rem;
-        }
-
-        #intro p {
-            margin-bottom: 2rem;
-        }
-
-        /* ================= MÓVIL ================= */
-        @media screen and (max-width: 736px) {
-            .lang-selector {
-                top: 1rem;
-                right: 1rem;
-                gap: 0.3rem;
-                font-size: 0.68rem;
-            }
-
-            .separator {
-                height: 9px;
-            }
-
-            #intro {
-                padding-top: 3.5rem !important;
-                padding-bottom: 3rem !important;
-            }
-
-            .intro-logo {
-                max-width: 230px;
-            }
-
-            #intro h1 {
-                font-size: 2.1rem;
-                line-height: 1.1;
-            }
-        }
-
-        /* ================= MENÚ DESDE IZQUIERDA ================= */
-        .navPanelToggle,
-        a.navPanelToggle,
-        [href="#navPanel"] {
-            left: 0.3em !important;
-            right: auto !important;
-            position: fixed !important;
-            z-index: 99999 !important;
-        }
-
-        #navPanel {
-            left: 0 !important;
-            right: auto !important;
-            transform: translateX(-100%) !important;
-        }
-
-        .is-navPanel-visible #navPanel {
-            transform: translateX(0) !important;
-        }
-
-        /* ================= QUIENES SOMOS (mantenido y corregido) ================= */
-        #quienes-somos {
+        /* ================= SERVICIOS ================= */
+        #servicios {
             padding-top: 4rem;
             padding-bottom: 4rem;
         }
 
-        #quienes-somos header.major {
-            margin-bottom: 3rem;
+        .services-intro {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
-        #quienes-somos p {
-            line-height: 1.5;
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-content {
+            padding: 2rem 2rem 2.5rem;
+            text-align: center;
+        }
+
+        .service-card .icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            color: #ffffff;
+        }
+
+        .service-card h3 {
             margin-bottom: 1rem;
+            font-size: 1.45rem;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            font-size: 0.97rem;
+            line-height: 1.7;
+            color: #eeeeee;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ================= QUIENES SOMOS ================= */
+        #quienes-somos {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
         }
 
         .team-container {
@@ -171,28 +173,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .circle-img:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 20px rgba(255,255,255,0.25);
-        }
-
-        .team-member h3 {
-            margin: 0.4rem 0 0.1rem;
-            font-size: 1.4rem;
-        }
-
-        .team-member .role {
-            color: #aaa;
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .team-member p {
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-            flex-grow: 1;
-        }
-
         .team-member ul.actions {
             display: flex;
             justify-content: center;
@@ -203,91 +183,9 @@
             min-height: 50px;
         }
 
-        .team-member a.button {
-            font-size: 0.85rem;
-            padding: 0.6rem 1.3rem;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ================= SERVICIOS ================= */
-        #servicios {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-
-        .services-intro {
-            max-width: 800px;
-            margin: 0 auto 3rem auto;
-            text-align: center;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 10px;
-            padding: 2.8rem 2rem 2.5rem;
-            text-align: center;
-            transition: all 0.35s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-            border-color: rgba(255,255,255,0.25);
-        }
-
-        .service-card .icon {
-            font-size: 3.4rem;
-            margin-bottom: 1.6rem;
-            color: #ffffff;
-            opacity: 0.95;
-        }
-
-        .service-card h3 {
-            margin-bottom: 1.1rem;
-            font-size: 1.4rem;
-        }
-
-        .service-card p {
-            font-size: 0.96rem;
-            line-height: 1.65;
-            color: #ddd;
-        }
-
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* ================= HORIZONTAL EN ESCRITORIO (equipo) ================= */
-        @media screen and (min-width: 1024px) {
-            .team-container {
-                flex-direction: column;
-                gap: 4rem;
-            }
-        }
-
         @media screen and (max-width: 736px) {
-            .team-container {
-                flex-direction: column;
-                gap: 2.5rem;
-            }
-
-            .circle-img {
-                margin: 0 auto 0.5rem auto;
+            .service-img {
+                height: 180px;
             }
         }
     </style>
@@ -337,17 +235,13 @@
     <!-- Main -->
     <div id="main">
 
-        <!-- QUIÉNES SOMOS (sin cambios) -->
+        <!-- QUIÉNES SOMOS -->
         <section id="quienes-somos">
-            <!-- ... (todo el contenido anterior del equipo se mantiene igual) ... -->
             <header class="major">
                 <h2>Quiénes Somos</h2>
             </header>
-
             <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong></p>
-
             <p>Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
-
             <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
 
             <div class="team-container">
@@ -373,7 +267,7 @@
             </div>
         </section>
 
-        <!-- SERVICIOS (¡NUEVO!) -->
+        <!-- SERVICIOS -->
         <section id="servicios">
             <header class="major">
                 <h2>Servicios</h2>
@@ -386,27 +280,39 @@
             <div class="services-grid">
 
                 <div class="service-card">
-                    <div class="icon"><i class="fas fa-drafting-compass"></i></div>
-                    <h3>Ingeniería y Consultoría Técnica</h3>
-                    <p>Planificación, diseño, cálculo y redacción de estudios, informes, dictámenes, memorias, anteproyectos y proyectos completos. Dirección, supervisión, coordinación, asistencia técnica, puesta en marcha y seguimiento de obras e instalaciones.</p>
+                    <img src="images/servicio1.jpg" alt="Ingeniería y Consultoría Técnica" class="service-img">
+                    <div class="service-content">
+                        <div class="icon"><i class="fas fa-drafting-compass"></i></div>
+                        <h3>Ingeniería y Consultoría Técnica</h3>
+                        <p>Planificación, diseño, cálculo y redacción de estudios, informes, dictámenes, memorias, anteproyectos y proyectos completos. Dirección, supervisión, coordinación, asistencia técnica, puesta en marcha y seguimiento de obras e instalaciones.</p>
+                    </div>
                 </div>
 
                 <div class="service-card">
-                    <div class="icon"><i class="fas fa-solar-panel"></i></div>
-                    <h3>Ingeniería de Instalaciones y Sistemas</h3>
-                    <p>Instalaciones eléctricas, de comunicaciones, térmicas, climatización y ventilación. Energías renovables, eficiencia energética, auditorías energéticas, automatización, control, monitorización e instrumentación. Modelización, simulación y optimización de sistemas en edificios, industria e infraestructuras.</p>
+                    <img src="images/servicio2.jpg" alt="Ingeniería de Instalaciones y Sistemas" class="service-img">
+                    <div class="service-content">
+                        <div class="icon"><i class="fas fa-solar-panel"></i></div>
+                        <h3>Ingeniería de Instalaciones y Sistemas</h3>
+                        <p>Instalaciones eléctricas, de comunicaciones, térmicas, climatización y ventilación. Energías renovables, eficiencia energética, auditorías energéticas, automatización, control, monitorización e instrumentación. Modelización, simulación y optimización de sistemas.</p>
+                    </div>
                 </div>
 
                 <div class="service-card">
-                    <div class="icon"><i class="fas fa-tasks"></i></div>
-                    <h3>Gestión de Proyectos y Contratación</h3>
-                    <p>Project management, coordinación técnica, soporte en licitaciones, elaboración de pliegos y documentación para contratación, mediciones, presupuestos y apoyo integral a la dirección facultativa.</p>
+                    <img src="images/servicio3.png" alt="Gestión de Proyectos y Contratación" class="service-img">
+                    <div class="service-content">
+                        <div class="icon"><i class="fas fa-tasks"></i></div>
+                        <h3>Gestión de Proyectos y Contratación</h3>
+                        <p>Project management, coordinación técnica, soporte en licitaciones, elaboración de pliegos y documentación para contratación, mediciones, presupuestos y apoyo integral a la dirección facultativa.</p>
+                    </div>
                 </div>
 
                 <div class="service-card">
-                    <div class="icon"><i class="fas fa-microchip"></i></div>
-                    <h3>I+D+i y Transformación Digital</h3>
-                    <p>Investigación, desarrollo e innovación. Diseño, implantación y comercialización de soluciones tecnológicas: software, herramientas digitales, sistemas inteligentes, inteligencia artificial, análisis predictivo, modelización avanzada y optimización algorítmica.</p>
+                    <img src="images/servicio4.jpg" alt="I+D+i y Transformación Digital" class="service-img">
+                    <div class="service-content">
+                        <div class="icon"><i class="fas fa-microchip"></i></div>
+                        <h3>I+D+i y Transformación Digital</h3>
+                        <p>Investigación, desarrollo e innovación. Diseño, implantación y comercialización de soluciones tecnológicas: software, herramientas digitales, sistemas inteligentes, inteligencia artificial, análisis predictivo y optimización algorítmica.</p>
+                    </div>
                 </div>
 
             </div>
