@@ -106,6 +106,16 @@
             align-items: center;
         }
 
+        .team-member h3 {
+            margin: 0.8rem 0 0.3rem 0;   /* espacio arriba y abajo del nombre */
+        }
+
+        .team-member .role {
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 1.2rem;       /* ← espacio claro debajo del rol */
+        }
+
         .circle-img {
             width: 180px;
             height: 180px;
@@ -160,7 +170,7 @@
         }
 
         .service-content {
-            padding: 2rem 2rem 1.8rem;   /* ← reducido el padding inferior para menos gris abajo */
+            padding: 2rem 2rem 1.3rem;   /* ← reducido aún más el espacio de abajo */
             text-align: left;
         }
 
@@ -172,12 +182,12 @@
         }
 
         .service-card p {
-            font-size: 0.94rem;           /* ← un poquito más pequeño para justificar mejor */
+            font-size: 0.94rem;
             line-height: 1.75;
             color: #ffffff;
             margin-top: 1.2rem;
-            text-align: justify;          /* ← vuelto a justificar */
-            hyphens: auto;                /* mejora la justificación en español (rompe palabras si es necesario) */
+            text-align: justify;
+            hyphens: auto;
         }
 
         @media (min-width: 768px) {
@@ -186,7 +196,27 @@
 
         @media screen and (max-width: 736px) {
             .service-img { height: 190px; }
-            .service-card p { font-size: 0.93rem; }  /* aún más pequeño en móvil si hace falta */
+            .service-card p { font-size: 0.93rem; }
+        }
+
+        /* ================= FOOTER MÁS COMPACTO ================= */
+        #footer {
+            padding: 1.5rem 0 1rem 0 !important;   /* menos altura general */
+        }
+
+        #copyright {
+            padding: 0.8rem 0;
+            font-size: 0.9rem;
+            background: #111;   /* mantengo el gris oscuro pero más delgado */
+        }
+
+        #copyright ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        #copyright li {
+            margin: 0.3rem 0;
         }
     </style>
 </head>
@@ -353,7 +383,7 @@
 
     </div>
 
-    <!-- Footer -->
+    <!-- Footer más compacto -->
     <footer id="footer">
         <section class="split contact"></section>
     </footer>
