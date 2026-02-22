@@ -22,7 +22,7 @@
         .lang-selector {
             position: absolute;
             top: 1.1rem;
-            right: 1.2rem;
+            right: 4.2rem;          /* espacio para la X */
             display: flex;
             align-items: center;
             gap: 0.4rem;
@@ -48,6 +48,32 @@
             background: rgba(255,255,255,0.25);
         }
 
+        /* X del menú (mobile) - arriba derecha */
+        .navPanelToggle, a.navPanelToggle, [href="#navPanel"] {
+            position: fixed !important;
+            top: 1.1rem !important;
+            right: 1.2rem !important;
+            left: auto !important;
+            z-index: 99999 !important;
+            font-size: 1.6rem;
+            color: #fff;
+            background: rgba(0,0,0,0.4);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .navPanelToggle:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        #navPanel { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
+        .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
+
         /* ================= INTRO ================= */
         #intro {
             height: auto !important;
@@ -67,23 +93,13 @@
 
         /* ================= MÓVIL ================= */
         @media screen and (max-width: 736px) {
-            .lang-selector { top: 1rem; right: 1rem; gap: 0.3rem; font-size: 0.68rem; }
+            .lang-selector { top: 1rem; right: 5rem; gap: 0.3rem; font-size: 0.68rem; }
             .separator { height: 9px; }
             #intro { padding-top: 3.5rem !important; padding-bottom: 3rem !important; }
             .intro-logo { max-width: 230px; }
             #intro h1 { font-size: 2.1rem; line-height: 1.1; }
+            .navPanelToggle { top: 1rem !important; right: 1rem !important; }
         }
-
-        /* ================= MENÚ ================= */
-        .navPanelToggle, a.navPanelToggle, [href="#navPanel"] {
-            left: 0.3em !important;
-            right: auto !important;
-            position: fixed !important;
-            z-index: 99999 !important;
-        }
-
-        #navPanel { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
-        .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
 
         /* ================= QUIENES SOMOS ================= */
         #quienes-somos { padding-top: 4rem; padding-bottom: 4rem; }
@@ -106,14 +122,11 @@
             align-items: center;
         }
 
-        .team-member h3 {
-            margin: 0.8rem 0 0.3rem 0;   /* espacio arriba y abajo del nombre */
-        }
-
+        .team-member h3 { margin: 0.8rem 0 0.3rem 0; }
         .team-member .role {
             color: #aaa;
             font-size: 1rem;
-            margin-bottom: 1.2rem;       /* ← espacio claro debajo del rol */
+            margin-bottom: 1.2rem;
         }
 
         .circle-img {
@@ -145,7 +158,7 @@
         .services-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2.5rem;
+            gap: 3rem;              /* ← aumentado separación */
             margin-top: 2rem;
         }
 
@@ -170,7 +183,7 @@
         }
 
         .service-content {
-            padding: 2rem 2rem 1.3rem;   /* ← reducido aún más el espacio de abajo */
+            padding: 2rem 2rem 1.1rem;   /* ← reducido padding inferior */
             text-align: left;
         }
 
@@ -185,38 +198,42 @@
             font-size: 0.94rem;
             line-height: 1.75;
             color: #ffffff;
-            margin-top: 1.2rem;
+            margin-top: 1.1rem;
             text-align: justify;
             hyphens: auto;
         }
 
         @media (min-width: 768px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: repeat(2, 1fr); gap: 3.5rem; }  /* ← más separación en desktop */
         }
 
         @media screen and (max-width: 736px) {
             .service-img { height: 190px; }
             .service-card p { font-size: 0.93rem; }
+            .services-grid { gap: 3rem; }
         }
 
         /* ================= FOOTER MÁS COMPACTO ================= */
         #footer {
-            padding: 1.5rem 0 1rem 0 !important;   /* menos altura general */
+            padding: 1rem 0 0.5rem 0 !important;
         }
 
         #copyright {
-            padding: 0.8rem 0;
-            font-size: 0.9rem;
-            background: #111;   /* mantengo el gris oscuro pero más delgado */
+            padding: 0.6rem 0;
+            font-size: 0.85rem;
+            background: transparent;      /* ← quitado fondo oscuro */
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
 
         #copyright ul {
             margin: 0;
             padding: 0;
+            list-style: none;
         }
 
         #copyright li {
-            margin: 0.3rem 0;
+            margin: 0;
         }
     </style>
 </head>
@@ -248,7 +265,9 @@
         </ul>
     </div>
 
-    <!-- Nav -->
+    <!-- Nav / Menú lateral -->
+    <a href="#navPanel" class="navPanelToggle icon fa-bars"><span>Menu</span></a>
+
     <nav id="nav">
         <ul class="links">
             <li class="active"><a href="#quienes-somos">QUIENES SOMOS</a></li>
@@ -352,7 +371,9 @@
             <header class="major">
                 <h2>Proyectos</h2>
             </header>
-            <p>Contenido de Proyectos...</p>
+            <p style="text-align: center; font-style: italic; color: #aaa; padding: 2rem 0;">
+                En elaboración
+            </p>
         </section>
 
         <!-- CONTACTO -->
@@ -390,7 +411,7 @@
 
     <div id="copyright">
         <ul>
-            <li>© Frau & Bär Engineering 2026</li>
+            <li>FRAU BAR ENGINEERING S.L. - 2026</li>
         </ul>
     </div>
 
