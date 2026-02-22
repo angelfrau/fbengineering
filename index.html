@@ -74,48 +74,16 @@
             #intro h1 { font-size: 2.1rem; line-height: 1.1; }
         }
 
-        /* ================= MENÚ - X en esquina superior derecha ================= */
-        #navPanel {
-            left: 0 !important;
-            right: auto !important;
-            transform: translateX(-100%) !important;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            width: 300px;
-            background: #1f1f1f;
-            z-index: 9999;
-            padding: 1.5rem;
-            box-sizing: border-box;
-        }
-
-        .is-navPanel-visible #navPanel {
-            transform: translateX(0) !important;
-        }
-
-        /* Botón cerrar (X) - esquina superior derecha */
-        .close-nav {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            color: #fff;
-            cursor: pointer;
-            z-index: 10000;
-            line-height: 1;
-        }
-
-        /* Ajuste del toggle (menú hamburguesa) */
-        .navPanelToggle,
-        a.navPanelToggle,
-        [href="#navPanel"] {
-            left: 0.8rem !important;
-            top: 1rem !important;
+        /* ================= MENÚ ================= */
+        .navPanelToggle, a.navPanelToggle, [href="#navPanel"] {
+            left: 0.3em !important;
             right: auto !important;
             position: fixed !important;
             z-index: 99999 !important;
-            font-size: 1.8rem;
         }
+
+        #navPanel { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
+        .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
 
         /* ================= QUIENES SOMOS ================= */
         #quienes-somos { padding-top: 4rem; padding-bottom: 4rem; }
@@ -193,22 +161,14 @@
 
         .service-content {
             padding: 2rem 2rem 2.5rem;
-            text-align: left;          /* ← Cambiado a izquierda (no justificado) */
-        }
-
-        .service-card .icon {
-            font-size: 2.8rem;
-            margin-bottom: 1.2rem;
-            color: #ffffff;
-            text-align: center;
-            display: block;
+            text-align: left;          /* ← alineado a la izquierda */
         }
 
         .service-card h3 {
             margin-bottom: 1rem;
             font-size: 1.45rem;
             color: #ffffff;
-            text-align: center;
+            text-align: center;        /* título sigue centrado */
         }
 
         .service-card p {
@@ -321,7 +281,6 @@
                 <div class="service-card">
                     <img src="images/servicios1.jpg" alt="Ingeniería y Consultoría Técnica" class="service-img">
                     <div class="service-content">
-                        <div class="icon"><i class="fas fa-drafting-compass"></i></div>
                         <h3>Ingeniería y Consultoría Técnica</h3>
                         <p>Planificación, diseño, cálculo y redacción de estudios, informes, dictámenes, memorias, anteproyectos y proyectos completos. Dirección, supervisión, coordinación, asistencia técnica, puesta en marcha y seguimiento de obras e instalaciones.</p>
                     </div>
@@ -330,7 +289,6 @@
                 <div class="service-card">
                     <img src="images/servicios2.jpg" alt="Ingeniería de Instalaciones y Sistemas" class="service-img">
                     <div class="service-content">
-                        <div class="icon"><i class="fas fa-solar-panel"></i></div>
                         <h3>Ingeniería de Instalaciones y Sistemas</h3>
                         <p>Instalaciones eléctricas, de comunicaciones, térmicas, climatización y ventilación. Energías renovables, eficiencia energética, auditorías energéticas, automatización, control, monitorización e instrumentación. Modelización, simulación y optimización de sistemas en edificios, industria e infraestructuras.</p>
                     </div>
@@ -339,7 +297,6 @@
                 <div class="service-card">
                     <img src="images/servicios3.png" alt="Gestión de Proyectos y Contratación" class="service-img">
                     <div class="service-content">
-                        <div class="icon"><i class="fas fa-tasks"></i></div>
                         <h3>Gestión de Proyectos y Contratación</h3>
                         <p>Project management, coordinación técnica, soporte en licitaciones, elaboración de pliegos y documentación para contratación, mediciones, presupuestos y apoyo integral a la dirección facultativa.</p>
                     </div>
@@ -348,7 +305,6 @@
                 <div class="service-card">
                     <img src="images/servicios4.jpg" alt="I+D+i y Transformación Digital" class="service-img">
                     <div class="service-content">
-                        <div class="icon"><i class="fas fa-microchip"></i></div>
                         <h3>I+D+i y Transformación Digital</h3>
                         <p>Investigación, desarrollo e innovación. Diseño, implantación y comercialización de soluciones tecnológicas: software, herramientas digitales, sistemas inteligentes, inteligencia artificial, análisis predictivo, modelización avanzada y optimización algorítmica.</p>
                     </div>
@@ -400,7 +356,8 @@
 
     <div id="copyright">
         <ul>
-            <li>&copy; Frau & Bär Engineering S.L.</li>
+            <li>&copy; Frau & Bär Engineering</li>
+            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
         </ul>
     </div>
 
@@ -414,9 +371,6 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-
-<!-- Nota: si el template original no tiene botón de cerrar visible, añade este HTML justo después de <nav id="nav"> o dentro del panel si usas el sistema de HTML5 UP -->
-<!-- <a href="#navPanel" class="close-nav">&times;</a> -->
 
 </body>
 </html>
