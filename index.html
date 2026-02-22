@@ -160,7 +160,7 @@
         }
 
         .service-content {
-            padding: 2rem 2rem 2.5rem;
+            padding: 2rem 2rem 1.8rem;   /* ← reducido el padding inferior para menos gris abajo */
             text-align: left;
         }
 
@@ -172,11 +172,12 @@
         }
 
         .service-card p {
-            font-size: 0.97rem;
+            font-size: 0.94rem;           /* ← un poquito más pequeño para justificar mejor */
             line-height: 1.75;
             color: #ffffff;
-            margin-top: 1.2rem;          /* ← añadido: más espacio arriba respecto al título */
-            text-align: left;            /* ← confirmado: alineado a la izquierda */
+            margin-top: 1.2rem;
+            text-align: justify;          /* ← vuelto a justificar */
+            hyphens: auto;                /* mejora la justificación en español (rompe palabras si es necesario) */
         }
 
         @media (min-width: 768px) {
@@ -185,6 +186,7 @@
 
         @media screen and (max-width: 736px) {
             .service-img { height: 190px; }
+            .service-card p { font-size: 0.93rem; }  /* aún más pequeño en móvil si hace falta */
         }
     </style>
 </head>
@@ -358,8 +360,7 @@
 
     <div id="copyright">
         <ul>
-            <li>&copy; Frau & Bär Engineering</li>
-            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+            <li>© Frau & Bär Engineering 2026</li>
         </ul>
     </div>
 
