@@ -198,20 +198,19 @@
             .service-card p { font-size: 0.93rem; }
         }
 
-        /* ================= FOOTER - FONDO MARRÓN CLARITO DEL FONDO ================= */
+        /* ================= FOOTER - FONDO MARRÓN CLARITO + ALTURA SIMÉTRICA + TEXTO PERFECTAMENTE CENTRADO ================= */
         #footer {
-            padding: 2.8rem 0 2.2rem 0 !important;   /* más altura como pediste */
+            padding: 2.5rem 0 !important;        /* mismo hueco arriba y abajo (2.5rem) */
             margin: 0 !important;
-            background: transparent !important;      /* usa exactamente el mismo fondo marrón clarito que tiene el resto de la página */
+            background: transparent !important;  /* mismo fondo marrón clarito que el resto de la página */
         }
 
-        /* Quita cualquier fondo raro del tema */
         #footer:before,
         #footer:after {
             display: none !important;
         }
 
-        /* Barra del copyright - ahora sin fondo negro, más ligera y con el color del fondo */
+        /* Barra del copyright */
         #copyright {
             padding: 0 !important;
             margin: 0 !important;
@@ -221,16 +220,18 @@
             text-align: center !important;
         }
 
-        /* Elimina listas internas */
+        /* Fuerza centrado perfecto (el tema a veces mete margen izquierdo en las listas) */
         #copyright ul {
-            margin: 0 !important;
+            margin: 0 auto !important;
             padding: 0 !important;
             list-style: none;
+            display: inline-block;
         }
 
         #copyright li {
             margin: 0 !important;
             padding: 0 !important;
+            text-align: center !important;
         }
     </style>
 </head>
