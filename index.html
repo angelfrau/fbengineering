@@ -385,16 +385,39 @@ EN ELABORACIÓN
     </div>
 
     <!-- Footer más compacto -->
+/* ================= FOOTER ULTRA COMPACTO ================= */
+
+/* Elimina cualquier altura mínima heredada */
 #footer {
     padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
     background: transparent !important;
 }
 
+/* Quita fondos raros del tema */
+#footer:before,
+#footer:after {
+    display: none !important;
+}
+
+/* Reduce el bloque final */
 #copyright {
-    padding: 0.6rem 0;
-    font-size: 0.85rem;
+    padding: 0.4rem 0 !important;
+    margin: 0 !important;
+    font-size: 0.75rem !important;
     background: transparent !important;
     text-align: center;
+}
+
+/* Elimina listas internas si el tema las fuerza */
+#copyright ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#copyright li {
+    margin: 0 !important;
 }
 
     <div id="copyright">
@@ -416,4 +439,5 @@ EN ELABORACIÓN
 
 </body>
 </html>
+
 
