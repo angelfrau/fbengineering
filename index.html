@@ -198,33 +198,30 @@
             .service-card p { font-size: 0.93rem; }
         }
 
-        /* ================= FOOTER ULTRA COMPACTO ================= */
-        /* Elimina cualquier altura mínima heredada */
+        /* ================= FOOTER - FONDO MARRÓN CLARITO DEL FONDO ================= */
         #footer {
-            padding: 0 !important;
+            padding: 2.8rem 0 2.2rem 0 !important;   /* más altura como pediste */
             margin: 0 !important;
-            min-height: auto !important;
-            background: transparent !important;
+            background: transparent !important;      /* usa exactamente el mismo fondo marrón clarito que tiene el resto de la página */
         }
 
-        /* Quita fondos raros del tema */
+        /* Quita cualquier fondo raro del tema */
         #footer:before,
         #footer:after {
             display: none !important;
         }
 
-        /* Barra del copyright - súper ligera, fondo negro oscuro */
+        /* Barra del copyright - ahora sin fondo negro, más ligera y con el color del fondo */
         #copyright {
-            padding: 0.5rem 0 !important;
+            padding: 0 !important;
             margin: 0 !important;
-            font-size: 0.72rem !important;
-            background: #0a0a0a !important;   /* Fondo más oscuro como querías */
-            color: #aaaaaa;
+            font-size: 0.74rem !important;
+            background: transparent !important;
+            color: #bbbbbb;
             text-align: center !important;
-            border-top: 1px solid rgba(255,255,255,0.07);
         }
 
-        /* Elimina listas internas si el tema las fuerza */
+        /* Elimina listas internas */
         #copyright ul {
             margin: 0 !important;
             padding: 0 !important;
@@ -402,7 +399,7 @@
 
     </div>
 
-    <!-- FOOTER ULTRA COMPACTO -->
+    <!-- FOOTER -->
     <footer id="footer">
         <div id="copyright">
             <ul>
