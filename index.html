@@ -22,7 +22,7 @@
         .lang-selector {
             position: absolute;
             top: 1.1rem;
-            right: 4.8rem;              /* espacio para la X */
+            right: 1.2rem;
             display: flex;
             align-items: center;
             gap: 0.4rem;
@@ -48,32 +48,6 @@
             background: rgba(255,255,255,0.25);
         }
 
-        /* ================= X DEL MENÚ (arriba a la derecha) ================= */
-        .navPanelToggle, a.navPanelToggle, [href="#navPanel"] {
-            position: fixed !important;
-            top: 1.05rem !important;
-            right: 1.2rem !important;
-            left: auto !important;
-            z-index: 99999 !important;
-            font-size: 1.65rem;
-            color: #fff;
-            background: rgba(0,0,0,0.35);
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .navPanelToggle:hover {
-            background: rgba(255,255,255,0.15);
-        }
-
-        #navPanel { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
-        .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
-
         /* ================= INTRO ================= */
         #intro {
             height: auto !important;
@@ -93,11 +67,23 @@
 
         /* ================= MÓVIL ================= */
         @media screen and (max-width: 736px) {
-            .lang-selector { top: 1rem; right: 5.2rem; font-size: 0.68rem; }
+            .lang-selector { top: 1rem; right: 1rem; gap: 0.3rem; font-size: 0.68rem; }
+            .separator { height: 9px; }
             #intro { padding-top: 3.5rem !important; padding-bottom: 3rem !important; }
             .intro-logo { max-width: 230px; }
-            .navPanelToggle { top: 1rem !important; right: 1rem !important; width: 42px; height: 42px; }
+            #intro h1 { font-size: 2.1rem; line-height: 1.1; }
         }
+
+        /* ================= MENÚ ================= */
+        .navPanelToggle, a.navPanelToggle, [href="#navPanel"] {
+            left: 0.3em !important;
+            right: auto !important;
+            position: fixed !important;
+            z-index: 99999 !important;
+        }
+
+        #navPanel { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
+        .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
 
         /* ================= QUIENES SOMOS ================= */
         #quienes-somos { padding-top: 4rem; padding-bottom: 4rem; }
@@ -112,11 +98,22 @@
             margin-top: 3rem;
         }
 
-        .team-member h3 { margin: 0.8rem 0 0.3rem 0; }
+        .team-member {
+            text-align: center;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member h3 {
+            margin: 0.8rem 0 0.3rem 0;   /* espacio arriba y abajo del nombre */
+        }
+
         .team-member .role {
             color: #aaa;
             font-size: 1rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.2rem;       /* ← espacio claro debajo del rol */
         }
 
         .circle-img {
@@ -148,7 +145,7 @@
         .services-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3.2rem;                    /* ← más separación entre tarjetas */
+            gap: 2.5rem;
             margin-top: 2rem;
         }
 
@@ -173,7 +170,7 @@
         }
 
         .service-content {
-            padding: 2rem 2rem 1rem;        /* ← reducido espacio inferior */
+            padding: 2rem 2rem 1.3rem;   /* ← reducido aún más el espacio de abajo */
             text-align: left;
         }
 
@@ -188,44 +185,38 @@
             font-size: 0.94rem;
             line-height: 1.75;
             color: #ffffff;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             text-align: justify;
             hyphens: auto;
         }
 
         @media (min-width: 768px) {
-            .services-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 3.8rem;                    /* aún más separación en escritorio */
-            }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media screen and (max-width: 736px) {
             .service-img { height: 190px; }
-            .services-grid { gap: 3rem; }
+            .service-card p { font-size: 0.93rem; }
         }
 
-        /* ================= FOOTER ================= */
+        /* ================= FOOTER MÁS COMPACTO ================= */
         #footer {
-            padding: 1rem 0 0.6rem 0 !important;
+            padding: 1.5rem 0 1rem 0 !important;   /* menos altura general */
         }
 
         #copyright {
-            padding: 0.5rem 0;
-            font-size: 0.85rem;
-            background: transparent;           /* ← sin fondo oscuro */
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 0.8rem 0;
+            font-size: 0.9rem;
+            background: #111;   /* mantengo el gris oscuro pero más delgado */
         }
 
         #copyright ul {
             margin: 0;
             padding: 0;
-            list-style: none;
         }
 
         #copyright li {
-            margin: 0;
+            margin: 0.3rem 0;
         }
     </style>
 </head>
@@ -246,9 +237,6 @@
             <a href="#">DE</a>
         </div>
     </header>
-
-    <!-- Botón menú (X/hamburguesa) arriba a la derecha -->
-    <a href="#navPanel" class="navPanelToggle icon fa-bars"><span>Menu</span></a>
 
     <!-- Intro -->
     <div id="intro">
@@ -279,27 +267,83 @@
 
         <!-- QUIÉNES SOMOS -->
         <section id="quienes-somos">
-            <!-- ... (sin cambios) ... -->
-            <header class="major"><h2>Quiénes Somos</h2></header>
-            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca...</p>
-            <!-- resto igual -->
+            <header class="major">
+                <h2>Quiénes Somos</h2>
+            </header>
+
+            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong></p>
+
+            <p>Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
+
+            <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
+
             <div class="team-container">
-                <!-- Murti y Àngel igual que antes -->
+                <div class="team-member">
+                    <img src="images/murti.png" alt="Murti Bär" class="circle-img" />
+                    <h3>Murti Bär</h3>
+                    <div class="role">Ingeniero Industrial</div>
+                    <p>4 años de experiencia en investigación y desarrollo de redes energéticas, con enfoque en sistemas fotovoltaicos, baterías, eficiencia energética y digitalización de procesos energéticos.</p>
+                    <ul class="actions">
+                        <li><a href="https://es.linkedin.com/in/murti-b%C3%A4r" target="_blank" class="button small">Ver perfil LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <img src="images/angel.png" alt="Àngel Frau" class="circle-img" />
+                    <h3>Àngel Frau</h3>
+                    <div class="role">Ingeniero Industrial</div>
+                    <p>Con 7 años de experiencia liderando proyectos integrales de ingeniería, desde el diseño conceptual hasta la ejecución y puesta en marcha. Apasionado por soluciones técnicas eficientes y la transformación digital en el sector.</p>
+                    <ul class="actions">
+                        <li><a href="https://es.linkedin.com/in/angel-frau-40b999179" target="_blank" class="button small">Ver perfil LinkedIn</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- SERVICIOS -->
         <section id="servicios">
-            <header class="major"><h2>Servicios</h2></header>
+            <header class="major">
+                <h2>Servicios</h2>
+            </header>
+
             <div class="services-intro">
-                <p>Ofrecemos servicios completos de ingeniería industrial y consultoría técnica...</p>
+                <p>Ofrecemos servicios completos de ingeniería industrial y consultoría técnica con un enfoque en la excelencia técnica, la eficiencia y la innovación. Cubrimos todas las fases del proyecto, desde la concepción hasta la optimización continua.</p>
             </div>
+
             <div class="services-grid">
-                <!-- las 4 tarjetas igual, pero con los nuevos estilos -->
-                <div class="service-card"> ... </div>
-                <div class="service-card"> ... </div>
-                <div class="service-card"> ... </div>
-                <div class="service-card"> ... </div>
+
+                <div class="service-card">
+                    <img src="images/servicios1.jpg" alt="Ingeniería y Consultoría Técnica" class="service-img">
+                    <div class="service-content">
+                        <h3>Ingeniería y Consultoría Técnica</h3>
+                        <p>Planificación, diseño, cálculo y redacción de estudios, informes, dictámenes, memorias, anteproyectos y proyectos completos. Dirección, supervisión, coordinación, asistencia técnica, puesta en marcha y seguimiento de obras e instalaciones.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="images/servicios2.jpg" alt="Ingeniería de Instalaciones y Sistemas" class="service-img">
+                    <div class="service-content">
+                        <h3>Ingeniería de Instalaciones y Sistemas</h3>
+                        <p>Instalaciones eléctricas, de comunicaciones, térmicas, climatización y ventilación. Energías renovables, eficiencia energética, auditorías energéticas, automatización, control, monitorización e instrumentación. Modelización, simulación y optimización de sistemas en edificios, industria e infraestructuras.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="images/servicios3.png" alt="Gestión de Proyectos y Contratación" class="service-img">
+                    <div class="service-content">
+                        <h3>Gestión de Proyectos y Contratación</h3>
+                        <p>Project management, coordinación técnica, soporte en licitaciones, elaboración de pliegos y documentación para contratación, mediciones, presupuestos y apoyo integral a la dirección facultativa.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="images/servicios4.jpg" alt="I+D+i y Transformación Digital" class="service-img">
+                    <div class="service-content">
+                        <h3>I+D+i y Transformación Digital</h3>
+                        <p>Investigación, desarrollo e innovación. Diseño, implantación y comercialización de soluciones tecnológicas: software, herramientas digitales, sistemas inteligentes, inteligencia artificial, análisis predictivo, modelización avanzada y optimización algorítmica.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -308,26 +352,45 @@
             <header class="major">
                 <h2>Proyectos</h2>
             </header>
-            <p style="text-align: center; font-style: italic; color: #aaa; padding: 3rem 0; font-size: 1.1rem;">
-                En elaboración
-            </p>
+            <p>EN ELABORACIÓN</p>
         </section>
 
         <!-- CONTACTO -->
         <section id="contacto">
-            <!-- formulario igual -->
+            <header class="major">
+                <h2>Contacto</h2>
+            </header>
+            <form method="post" action="#">
+                <div class="fields">
+                    <div class="field">
+                        <label for="name">Nombre</label>
+                        <input type="text" name="name" id="name" />
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" />
+                    </div>
+                    <div class="field">
+                        <label for="message">Mensaje</label>
+                        <textarea name="message" id="message" rows="3"></textarea>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Enviar" /></li>
+                </ul>
+            </form>
         </section>
 
     </div>
 
-    <!-- Footer -->
+    <!-- Footer más compacto -->
     <footer id="footer">
         <section class="split contact"></section>
     </footer>
 
     <div id="copyright">
         <ul>
-            <li>FRAU BAR ENGINEERING S.L. - 2026</li>
+            <li>Frau & Bär Engineering - 2026</li>
         </ul>
     </div>
 
