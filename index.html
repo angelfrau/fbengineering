@@ -75,15 +75,43 @@
         }
 
         /* ================= MENÚ ================= */
-        .navPanelToggle, a.navPanelToggle, [href="#navPanel"] {
+        .navPanelToggle, 
+        a.navPanelToggle, 
+        [href="#navPanel"]:not(#navPanel *) {
             left: 0.3em !important;
             right: auto !important;
             position: fixed !important;
             z-index: 99999 !important;
         }
 
+        /* X de cierre - esquina superior derecha */
+        #navPanel .close,
+        #navPanel a.close,
+        #navPanel a[href="#navPanel"] {
+            position: absolute !important;
+            top: 1.2rem !important;
+            right: 1.2rem !important;
+            left: auto !important;
+            z-index: 10001 !important;
+        }
+
         #navPanel { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
         .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
+
+        @media screen and (max-width: 736px) {
+            .navPanelToggle, 
+            a.navPanelToggle, 
+            [href="#navPanel"]:not(#navPanel *) {
+                left: 0.3em !important;
+            }
+            
+            #navPanel .close,
+            #navPanel a.close,
+            #navPanel a[href="#navPanel"] {
+                top: 1rem !important;
+                right: 1rem !important;
+            }
+        }
 
         /* ================= QUIENES SOMOS ================= */
         #quienes-somos { padding-top: 4rem; padding-bottom: 4rem; }
@@ -286,11 +314,11 @@
                 <h2>Quiénes Somos</h2>
             </header>
 
-            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong></p>
+            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor.</strong></p><p></p>
 
-            <p>Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
+            <p>Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria.</strong></p><p></p>
 
-            <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
+            <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p><p></p>
 
             <div class="team-container">
                 <div class="team-member">
