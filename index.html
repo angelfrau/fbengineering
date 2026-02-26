@@ -84,18 +84,25 @@
             z-index: 99999 !important;
         }
 
-        /* X de cierre - esquina superior derecha */
+        /* X de cierre - MÁS ARRIBA y MÁS A LA DERECHA */
         #navPanel .close,
         #navPanel a.close,
         #navPanel a[href="#navPanel"] {
             position: absolute !important;
-            top: 1.2rem !important;
-            right: 1.2rem !important;
+            top: 0.8rem !important;
+            right: 2rem !important;
             left: auto !important;
             z-index: 10001 !important;
         }
 
-        #navPanel { left: 0 !important; right: auto !important; transform: translateX(-100%) !important; }
+        /* Contenido del menú un poco más abajo */
+        #navPanel {
+            left: 0 !important;
+            right: auto !important;
+            transform: translateX(-100%) !important;
+            padding-top: 4.5rem !important;
+        }
+
         .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
 
         @media screen and (max-width: 736px) {
@@ -108,12 +115,16 @@
             #navPanel .close,
             #navPanel a.close,
             #navPanel a[href="#navPanel"] {
-                top: 1rem !important;
-                right: 1rem !important;
+                top: 0.6rem !important;
+                right: 1.8rem !important;
+            }
+            
+            #navPanel {
+                padding-top: 4rem !important;
             }
         }
 
-        /* ================= QUIENES SOMOS ================= */
+        /* ================= QUIENES SOMOS (posición ORIGINAL) ================= */
         #quienes-somos { padding-top: 4rem; padding-bottom: 4rem; }
         #quienes-somos header.major { margin-bottom: 3rem; }
         #quienes-somos p { line-height: 1.5; margin-bottom: 1rem; }
@@ -226,11 +237,11 @@
             .service-card p { font-size: 0.93rem; }
         }
 
-        /* ================= FOOTER - FONDO MARRÓN CLARITO + ALTURA SIMÉTRICA + TEXTO PERFECTAMENTE CENTRADO ================= */
+        /* ================= FOOTER ================= */
         #footer {
-            padding: 2.5rem 0 !important;        /* mismo hueco arriba y abajo (2.5rem) */
+            padding: 2.5rem 0 !important;
             margin: 0 !important;
-            background: transparent !important;  /* mismo fondo marrón clarito que el resto de la página */
+            background: transparent !important;
         }
 
         #footer:before,
@@ -238,7 +249,6 @@
             display: none !important;
         }
 
-        /* Barra del copyright */
         #copyright {
             padding: 0 !important;
             margin: 0 !important;
@@ -248,7 +258,6 @@
             text-align: center !important;
         }
 
-        /* Fuerza centrado perfecto (el tema a veces mete margen izquierdo en las listas) */
         #copyright ul {
             margin: 0 auto !important;
             padding: 0 !important;
@@ -314,11 +323,11 @@
                 <h2>Quiénes Somos</h2>
             </header>
 
-            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor.</strong></p><p></p>
+            <p><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor</strong></p>
 
-            <p>Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria.</strong></p><p></p>
+            <p>Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
 
-            <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p><p></p>
+            <p>Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
 
             <div class="team-container">
                 <div class="team-member">
