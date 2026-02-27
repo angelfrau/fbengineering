@@ -96,22 +96,28 @@
         }
 
         /* Contenido del menú BAJADO AÚN MÁS */
-        #navPanel {
-            left: 0 !important;
-            right: auto !important;
-            transform: translateX(-100%) !important;
-            padding-top: 6rem !important;     /* mucho más abajo */
-        }
+       /* ================= MENÚ MÁS ESTRECHO ================= */
+
+#navPanel {
+    width: 260px !important;
+    max-width: 80% !important;
+    transform: translateX(-260px) !important;
+}
+
+.is-navPanel-visible #navPanel {
+    transform: translateX(0) !important;
+}
+
+@media screen and (max-width: 736px) {
+    #navPanel {
+        width: 220px !important;
+        transform: translateX(-220px) !important;
+    }
+}
 
         .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
 
-        @media screen and (max-width: 736px) {
-            .navPanelToggle, 
-            a.navPanelToggle, 
-            [href="#navPanel"]:not(#navPanel *) {
-                left: 0.3em !important;
-            }
-            
+    
             #navPanel .close,
             #navPanel a.close,
             #navPanel a[href="#navPanel"] {
@@ -459,3 +465,4 @@
 
 </body>
 </html>
+
