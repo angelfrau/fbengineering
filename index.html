@@ -87,22 +87,6 @@
         /* X de cierre - AÚN MÁS A LA DERECHA */
         /* ================= X PERFECTAMENTE ARRIBA DERECHA ================= */
 
-#navPanel {
-    position: fixed !important;
-}
-
-#navPanel .close,
-#navPanel a.close {
-    position: absolute !important;
-    top: 1rem !important;
-    right: 1rem !important;
-    left: auto !important;
-    z-index: 10002 !important;
-}
-
-        /* Contenido del menú BAJADO AÚN MÁS */
-       /* ================= MENÚ MÁS ESTRECHO ================= */
-
 /* ================= MENÚ MÁS ESTRECHO CORRECTO ================= */
 
 #navPanel {
@@ -123,24 +107,20 @@
     #navPanel {
         width: 220px !important;
         transform: translateX(-100%) !important;
-        padding-top: 5rem !important;
+        padding-top: 5rem !important;   /* más abajo en móvil */
+    }
+
+    .is-navPanel-visible #navPanel {
+        transform: translateX(0) !important;
+    }
+
+    #navPanel .close,
+    #navPanel a.close,
+    #navPanel a[href="#navPanel"] {
+        top: 0.6rem !important;
+        right: 2.3rem !important;     /* más a la derecha en móvil */
     }
 }
-
-        .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
-
-    
-            #navPanel .close,
-            #navPanel a.close,
-            #navPanel a[href="#navPanel"] {
-                top: 0.6rem !important;
-                right: 2.3rem !important;     /* más a la derecha en móvil */
-            }
-            
-            #navPanel {
-                padding-top: 5rem !important;   /* más abajo en móvil */
-            }
-        }
 
         /* ================= QUIENES SOMOS (posición ORIGINAL) ================= */
         #quienes-somos { padding-top: 4rem; padding-bottom: 4rem; }
@@ -477,6 +457,7 @@
 
 </body>
 </html>
+
 
 
 
