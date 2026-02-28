@@ -170,7 +170,7 @@
         }
 
         /* ================= SERVICIOS ================= */
-        #servicios { padding-top: 4rem; padding-bottom: 6rem; }
+        #servicios { padding-top: 4rem; padding-bottom: 4rem; }
 
         .services-intro {
             max-width: 800px;
@@ -178,6 +178,8 @@
             text-align: center;
             font-size: 1.05rem;
             line-height: 1.6;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
 
         .services-grid {
@@ -238,40 +240,26 @@
 
         /* ================= FOOTER ================= */
         #footer {
-            padding: 2.5rem 0 !important;
-            margin: 0 !important;
-            background: transparent !important;
-        }
+    display: flex;            /* convierte el footer en flex */
+    justify-content: center;  /* centra horizontalmente */
+    align-items: center;      /* opcional, centra vertical si hay más contenido */
+    padding: 2.5rem 0;
+    background: transparent;
+}
 
-        #footer:before,
-        #footer:after {
-            display: none !important;
-        }
+#footer ul {
+    display: flex;            /* flex para los items */
+    justify-content: center;  /* centra los li dentro del ul */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;             /* espacio entre items si hay varios */
+}
 
-        #copyright {
-            padding: 0 !important;
-            margin: 0 !important;
-            font-size: 0.74rem !important;
-            background: transparent !important;
-            color: #bbbbbb;
-            text-align: center !important;
-        }
-
-        #copyright ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 0.5rem; /* opcional, espacio entre items si hay más de uno */
-        }
-
-        #copyright li {
-            margin: 0 !important;
-            padding: 0 !important;
-            text-align: center !important;
-        }
-
+#footer li {
+    margin: 0;
+    padding: 0;
+}
         #quienes-somos,
 #servicios,
 #proyectos,
@@ -472,6 +460,7 @@
 
 </body>
 </html>
+
 
 
 
