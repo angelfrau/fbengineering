@@ -255,12 +255,23 @@
 
 #footer ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* vertical por defecto (móvil) */
     justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 0.1rem;         /* espacio mínimo entre líneas */
+    gap: 0.1rem;
+}
+
+@media (min-width: 768px) {
+    #footer ul {
+        flex-direction: row;   /* horizontal en PC */
+        gap: 1.5rem;           /* espacio entre items */
+    }
+
+    #footer li {
+        text-align: center;    /* sigue centrado */
+    }
 }
 
 #footer li {
@@ -472,9 +483,7 @@
 
     </div>
 
-    <div class="contact-button-container">
-    <a href="#contacto" class="button">CONTÁCTENOS</a>
-</div>
+    
     
     <!-- FOOTER -->
     <footer id="footer">
@@ -501,6 +510,7 @@
 
 </body>
 </html>
+
 
 
 
