@@ -243,7 +243,7 @@
     display: flex;            /* convierte el footer en flex */
     justify-content: center;  /* centra horizontalmente */
     align-items: center;      /* opcional, centra vertical si hay más contenido */
-    padding: 2.5rem 0;
+    padding: 1rem 0;
     background: transparent;
 }
 
@@ -260,12 +260,26 @@
     margin: 0;
     padding: 0;
 }
-        #quienes-somos,
+
+#quienes-somos,
 #servicios,
 #proyectos,
 #contacto {
     padding-top: 4rem;
     padding-bottom: 4rem;
+}
+
+#servicios header.major,
+#proyectos header.major,
+#contacto header.major {
+    margin-bottom: 3rem;  /* mismo que quienes-somos */
+}
+
+#servicios p,
+#proyectos p,
+#contacto p {
+    line-height: 1.5;     /* igual que quienes-somos */
+    margin-bottom: 2rem;  /* igual que quienes-somos */
 }
         
     </style>
@@ -460,6 +474,7 @@
 
 </body>
 </html>
+
 
 
 
