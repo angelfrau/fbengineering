@@ -243,26 +243,30 @@
         }
 
         /* ================= FOOTER ================= */
-        #footer {
-    display: flex;            /* convierte el footer en flex */
-    justify-content: center;  /* centra horizontalmente */
-    align-items: center;      /* opcional, centra vertical si hay más contenido */
-    padding: 0.1rem 0;
+       #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.01rem 0; /* menos espacio vertical que antes */
     background: transparent;
 }
 
 #footer ul {
-    display: flex;            /* flex para los items */
-    justify-content: center;  /* centra los li dentro del ul */
+    display: flex;
+    flex-direction: column; /* para que cada li quede uno debajo del otro */
+    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 0.5rem;             /* espacio entre items si hay varios */
+    gap: 0.2rem; /* espacio entre líneas */
 }
 
 #footer li {
     margin: 0;
     padding: 0;
+    text-align: center;
+    font-size: 0.74rem;
+    color: #bbbbbb;
 }
 
 #quienes-somos,
@@ -482,6 +486,7 @@
 
 </body>
 </html>
+
 
 
 
