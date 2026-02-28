@@ -247,26 +247,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.01rem 0; /* menos espacio vertical que antes */
+    padding: 0;          /* elimina padding */
     background: transparent;
+    line-height: 1.2;    /* reduce espacio de línea interno */
+    font-size: 0.74rem;  /* mantener tamaño pequeño */
 }
 
 #footer ul {
     display: flex;
-    flex-direction: column; /* para que cada li quede uno debajo del otro */
+    flex-direction: column;
     justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 0.2rem; /* espacio entre líneas */
+    gap: 0.1rem;         /* espacio mínimo entre líneas */
 }
 
 #footer li {
     margin: 0;
     padding: 0;
     text-align: center;
-    font-size: 0.74rem;
-    color: #bbbbbb;
 }
 
 #quienes-somos,
@@ -469,7 +469,7 @@
         <div id="copyright">
             
                 <ul>
-            <li>© 2026 Frau & Bär Engineering.</li>
+            <li>© 2026 Frau & Bär Engineering</li>
             <li>All Rights Reserved. Trademarks</li>
         </ul>
             
@@ -489,6 +489,7 @@
 
 </body>
 </html>
+
 
 
 
