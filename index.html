@@ -8,488 +8,382 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
     <style>
-        /* ── Variables ─────────────────────────────────── */
+        /* ── Variables ──────────────────────────────────────── */
         :root {
-            --gold:        #C9A96E;
-            --gold-dim:    rgba(201,169,110,0.12);
-            --gold-glow:   rgba(201,169,110,0.28);
-            --gold-border: rgba(201,169,110,0.32);
-            --surface:     rgba(255,255,255,0.035);
-            --border:      rgba(255,255,255,0.08);
-            --warm:        #f0ede6;
-            --muted:       rgba(240,237,230,0.52);
+            --gold:    #C9A96E;
+            --gold-d:  rgba(201,169,110,0.12);
+            --gold-b:  rgba(201,169,110,0.30);
+            --bg:      #09090e;
+            --bg2:     rgba(255,255,255,0.035);
+            --border:  rgba(255,255,255,0.08);
+            --warm:    #f0ede6;
+            --muted:   rgba(240,237,230,0.52);
         }
 
-        /* ── Grain overlay ─────────────────────────────── */
+        /* ── Grain ─────────────────────────────────────────── */
         body::before {
             content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            pointer-events: none;
-            opacity: 0.032;
+            position: fixed; inset: 0;
+            z-index: 9999; pointer-events: none;
+            opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-size: 200px;
+            background-size: 180px;
         }
 
-        /* ── Base typography ───────────────────────────── */
+        /* ── CRITICAL: force dark on #main ─────────────────── */
+        #main,
+        #wrapper > #main,
+        #main > .inner {
+            background: var(--bg) !important;
+        }
+        #main section,
+        #main article {
+            background: transparent !important;
+            color: var(--warm) !important;
+        }
+
+        /* ── Base typography ───────────────────────────────── */
         html { scroll-behavior: smooth; }
-        body, input, select, textarea, button {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 300;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-        }
+        body, input, select, textarea { font-family: 'Outfit', sans-serif; font-weight: 300; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
 
-        /* ── Language selector ─────────────────────────── */
-        #header {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            padding: 1rem 1.4rem;
-            z-index: 1000;
-        }
+        /* ── Language selector ─────────────────────────────── */
+        #header { position: absolute; top: 0; width: 100%; padding: 1rem 1.4rem; z-index: 1000; }
         .lang-selector {
-            position: absolute;
-            top: 1.15rem;
-            right: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
+            position: absolute; top: 1.15rem; right: 1.4rem;
+            display: flex; align-items: center; gap: 0.55rem;
             font-family: 'Space Mono', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 2px;
-            color: rgba(255,255,255,0.38);
+            font-size: 0.62rem; letter-spacing: 2px;
+            color: rgba(255,255,255,0.35);
         }
-        .lang-selector a {
-            text-decoration: none !important;
-            border: none !important;
-            color: inherit;
-            padding: 0;
-            transition: color 0.2s ease;
-        }
-        .lang-selector a:hover,
-        .lang-selector a.active { color: var(--gold); }
-        .separator {
-            width: 1px;
-            height: 9px;
-            background: rgba(255,255,255,0.18);
-        }
+        .lang-selector a { text-decoration: none !important; border: none !important; color: inherit; transition: color 0.2s; }
+        .lang-selector a:hover, .lang-selector a.active { color: var(--gold); }
+        .separator { width: 1px; height: 9px; background: rgba(255,255,255,0.18); }
 
-        /* ── Hero / Intro ──────────────────────────────── */
+        /* ── Hero ──────────────────────────────────────────── */
         #intro {
-            height: auto !important;
-            min-height: unset !important;
-            padding-top: 5.5rem !important;
-            padding-bottom: 5.5rem !important;
+            height: auto !important; min-height: unset !important;
+            padding-top: 5.5rem !important; padding-bottom: 5.5rem !important;
         }
         .intro-logo {
-            max-width: 150px;
-            margin: 0 auto 2.2rem auto;
-            display: block;
-            opacity: 0;
-            animation: logoIn 1.2s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
+            max-width: 145px; margin: 0 auto 2.2rem; display: block;
+            opacity: 0; animation: logoIn 1.2s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
         }
         #intro h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
+            font-family: 'Cormorant Garamond', serif; font-weight: 300;
             font-size: clamp(2.6rem, 6.5vw, 5rem);
-            letter-spacing: 0.14em;
-            line-height: 1.08;
-            margin-bottom: 0.8rem;
-            opacity: 0;
-            animation: fadeUp 1s 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+            letter-spacing: 0.14em; line-height: 1.08; margin-bottom: 0.8rem;
+            opacity: 0; animation: fadeUp 1s 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
         }
         #intro h1::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            margin: 1rem auto 0;
-            animation: lineExpand 0.7s 1s ease forwards;
+            content: ''; display: block; width: 0; height: 1px;
+            background: var(--gold); margin: 1rem auto 0;
+            animation: lineExp 0.7s 1s ease forwards;
         }
         #intro p {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.66rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--gold);
+            font-family: 'Space Mono', monospace; font-size: 0.65rem;
+            letter-spacing: 4px; text-transform: uppercase; color: var(--gold);
             margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeUp 1s 0.55s cubic-bezier(0.16,1,0.3,1) forwards;
+            opacity: 0; animation: fadeUp 1s 0.55s cubic-bezier(0.16,1,0.3,1) forwards;
         }
 
-        /* ── Nav ────────────────────────────────────────── */
-        #nav {
-            border-top: 1px solid var(--gold-border);
-            border-bottom: 1px solid var(--gold-border);
-        }
-        #nav ul.links li a {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 2.5px;
-        }
-        #nav ul.links li.active a,
-        #nav ul.links li a:hover { color: var(--gold) !important; }
+        /* ── Nav ────────────────────────────────────────────── */
+        #nav { border-top: 1px solid var(--gold-b); border-bottom: 1px solid var(--gold-b); }
+        #nav ul.links li a { font-family: 'Space Mono', monospace; font-size: 0.61rem; letter-spacing: 2.5px; }
+        #nav ul.links li.active a, #nav ul.links li a:hover { color: var(--gold) !important; }
 
-        /* ── Menu panel ─────────────────────────────────── */
+        /* ── Menu panel ─────────────────────────────────────── */
         .navPanelToggle, a.navPanelToggle, [href="#navPanel"]:not(#navPanel *) {
-            left: 0.1rem !important;
-            right: auto !important;
-            position: fixed !important;
-            z-index: 99999 !important;
+            left: 0.1rem !important; right: auto !important; position: fixed !important; z-index: 99999 !important;
         }
-        #navPanel {
-            width: 235px !important;
-            max-width: 80% !important;
-            left: 0 !important;
-            right: auto !important;
-            transform: translateX(-100%) !important;
-            padding-top: 4.5rem !important;
-        }
+        #navPanel { width: 235px !important; max-width: 80% !important; left: 0 !important; right: auto !important; transform: translateX(-100%) !important; padding-top: 4.5rem !important; }
         .is-navPanel-visible #navPanel { transform: translateX(0) !important; }
 
-        /* ── Section titles ─────────────────────────────── */
-        header.major { margin-bottom: 3.5rem; text-align: center; }
+        /* ── Section titles ─────────────────────────────────── */
+        header.major { margin-bottom: 4rem; text-align: center; }
         header.major h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif; font-weight: 300;
             font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
+            letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--warm); position: relative; display: inline-block;
         }
         header.major h2::after {
-            content: '';
-            display: block;
-            width: 36px;
-            height: 1px;
-            background: var(--gold);
-            margin: 0.65rem auto 0;
+            content: ''; display: block; width: 32px; height: 1px;
+            background: var(--gold); margin: 0.7rem auto 0;
         }
 
-        /* ── Section dividers ───────────────────────────── */
-        #main > section {
-            border-top: 1px solid var(--border);
-        }
+        /* ── Section borders ────────────────────────────────── */
+        #main > section { border-top: 1px solid var(--border); padding-top: 5rem; padding-bottom: 5rem; }
         #main > section:first-child { border-top: none; }
 
-        /* ── Quiénes somos ──────────────────────────────── */
-        #quienes-somos { padding-top: 5rem; padding-bottom: 5rem; }
-        #quienes-somos header.major { margin-bottom: 3rem; }
+        /* ═══════════════════════════════════════════════════════
+           QUIÉNES SOMOS
+        ════════════════════════════════════════════════════════ */
         #quienes-somos > p {
-            font-size: 1.02rem;
-            line-height: 1.88;
-            color: rgba(240,237,230,0.78);
-            max-width: 660px;
-            margin: 0 auto 1.8rem;
+            font-size: 1.02rem; line-height: 1.9;
+            color: rgba(240,237,230,0.75);
+            max-width: 640px; margin: 0 auto 1.6rem;
         }
         #quienes-somos strong { color: var(--warm); font-weight: 500; }
 
-        /* ── Team ───────────────────────────────────────── */
+        /* Team: side by side on desktop */
         .team-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            align-items: center;
-            margin-top: 3.5rem;
+            display: flex; flex-direction: column;
+            gap: 1px; align-items: stretch;
+            margin-top: 4rem;
+            border: 1px solid var(--border); border-radius: 3px; overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .team-container { flex-direction: row; }
         }
         .team-member {
-            text-align: center;
-            max-width: 340px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2.5rem 2rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            transition: border-color 0.4s ease,
-                        box-shadow 0.4s ease,
-                        transform 0.4s cubic-bezier(0.16,1,0.3,1);
+            flex: 1; text-align: left;
+            display: flex; flex-direction: row; align-items: flex-start;
+            gap: 2rem; padding: 2.5rem;
+            background: var(--bg2);
+            border-right: 1px solid var(--border);
+            border-radius: 0; max-width: none;
+            transition: background 0.4s ease;
         }
-        .team-member:hover {
-            border-color: var(--gold-border);
-            box-shadow: 0 0 60px rgba(201,169,110,0.07), 0 20px 40px rgba(0,0,0,0.25);
-            transform: translateY(-6px);
-        }
-        .team-member h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            font-size: 1.5rem;
-            letter-spacing: 0.05em;
-            margin: 1.2rem 0 0.1rem 0;
-            color: var(--warm);
-        }
-        .team-member .role {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 1.4rem;
-        }
-        .team-member p {
-            font-size: 0.91rem;
-            line-height: 1.82;
-            color: var(--muted);
-        }
+        .team-member:last-child { border-right: none; }
+        .team-member:hover { background: rgba(255,255,255,0.055); }
+
+        .team-member-photo { flex-shrink: 0; }
         .circle-img {
-            width: 158px;
-            height: 158px;
-            border-radius: 50%;
+            width: 88px; height: 88px; border-radius: 50%;
             object-fit: cover;
-            border: 1px solid var(--gold-border);
-            box-shadow: 0 0 0 6px var(--gold-dim);
-            transition: transform 0.5s cubic-bezier(0.16,1,0.3,1),
-                        box-shadow 0.5s ease,
-                        border-color 0.5s ease;
+            border: 1px solid var(--gold-b);
+            box-shadow: 0 0 0 5px var(--gold-d);
+            transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), border-color 0.4s, box-shadow 0.4s;
+            display: block;
         }
         .circle-img:hover {
-            transform: scale(1.06);
+            transform: scale(1.08);
             border-color: var(--gold);
-            box-shadow: 0 0 0 6px rgba(201,169,110,0.16), 0 16px 40px rgba(0,0,0,0.35);
+            box-shadow: 0 0 0 5px rgba(201,169,110,0.18), 0 12px 30px rgba(0,0,0,0.4);
         }
+        .team-member-info { flex: 1; }
+        .team-member h3 {
+            font-family: 'Cormorant Garamond', serif; font-weight: 500;
+            font-size: 1.35rem; letter-spacing: 0.05em;
+            margin: 0 0 0.1rem; color: var(--warm); text-align: left;
+        }
+        .team-member .role {
+            font-family: 'Space Mono', monospace; font-size: 0.58rem;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 1rem; display: block;
+        }
+        .team-member p {
+            font-size: 0.88rem; line-height: 1.82;
+            color: var(--muted); text-align: left;
+        }
+        .team-member ul.actions { margin-top: 1.2rem; margin-bottom: 0; }
 
-        /* ── Servicios ──────────────────────────────────── */
-        #servicios { padding-top: 5rem; padding-bottom: 5rem; }
+        /* ═══════════════════════════════════════════════════════
+           SERVICIOS — numbered, editorial
+        ════════════════════════════════════════════════════════ */
         .services-intro {
-            max-width: 660px;
-            margin: 1rem auto 3.5rem;
-            text-align: center;
-            font-size: 0.98rem;
-            line-height: 1.88;
-            color: var(--muted);
+            max-width: 640px; margin: 0 auto 3.5rem;
+            text-align: center; font-size: 0.97rem;
+            line-height: 1.9; color: var(--muted);
         }
         .services-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 0;
             border: 1px solid var(--border);
-            border-radius: 3px;
-            overflow: hidden;
+            border-radius: 3px; overflow: hidden;
+            counter-reset: svc;
         }
-        @media (min-width: 768px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-        }
+        @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+
         .service-card {
-            background: var(--surface);
-            border: none;
-            border-radius: 0;
+            counter-increment: svc;
+            background: var(--bg2); border: none; border-radius: 0;
             border-right: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            overflow: hidden;
-            position: relative;
+            overflow: hidden; position: relative;
             transition: background 0.35s ease;
         }
         .service-card:nth-child(2n) { border-right: none; }
         .service-card:nth-last-child(-n+2) { border-bottom: none; }
-        .service-card:hover { background: rgba(255,255,255,0.055); transform: none; box-shadow: none; }
+        .service-card:hover { background: rgba(255,255,255,0.06); }
+
         .service-img {
-            width: 100%;
-            height: 195px;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.72) saturate(0.8);
-            transition: transform 0.65s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
+            width: 100%; height: 185px; object-fit: cover; display: block;
+            filter: brightness(0.65) saturate(0.75);
+            transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
         }
-        .service-card:hover .service-img {
-            transform: scale(1.04);
-            filter: brightness(0.84) saturate(1);
+        .service-card:hover .service-img { transform: scale(1.05); filter: brightness(0.8) saturate(1); }
+
+        /* big decorative number over the image */
+        .service-img-wrap { position: relative; overflow: hidden; }
+        .service-img-wrap::after {
+            content: '0' counter(svc);
+            position: absolute; bottom: -0.1rem; right: 1rem;
+            font-family: 'Cormorant Garamond', serif; font-weight: 300;
+            font-size: 5.5rem; line-height: 1;
+            color: var(--gold); opacity: 0.22;
+            pointer-events: none; user-select: none;
+            transition: opacity 0.35s ease;
         }
-        .service-content { padding: 1.8rem 1.8rem 1.4rem; }
+        .service-card:hover .service-img-wrap::after { opacity: 0.38; }
+
+        .service-content { padding: 1.6rem 1.8rem 1.5rem; }
         .service-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-            font-size: 1.25rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 0;
-            color: var(--warm);
-            text-align: left;
+            font-family: 'Cormorant Garamond', serif; font-weight: 500;
+            font-size: 1.2rem; letter-spacing: 0.06em;
+            color: var(--warm); text-align: left; margin-bottom: 0;
         }
         .service-card h3::after {
-            content: '';
-            display: block;
-            width: 22px;
-            height: 1px;
-            background: var(--gold);
-            margin-top: 0.55rem;
-            transition: width 0.35s ease;
+            content: ''; display: block; width: 20px; height: 1px;
+            background: var(--gold); margin-top: 0.55rem;
+            transition: width 0.3s ease;
         }
-        .service-card:hover h3::after { width: 38px; }
+        .service-card:hover h3::after { width: 36px; }
         .service-card p {
-            font-size: 0.87rem;
-            line-height: 1.82;
-            color: var(--muted);
-            margin-top: 1rem;
-            text-align: left;
-            hyphens: auto;
+            font-size: 0.86rem; line-height: 1.85;
+            color: var(--muted); margin-top: 0.9rem;
+            text-align: left; hyphens: auto;
         }
 
-        /* ── Proyectos ──────────────────────────────────── */
-        #proyectos { padding-top: 5rem; padding-bottom: 5rem; }
-        #proyectos p {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 4.5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            opacity: 0.55;
+        /* ═══════════════════════════════════════════════════════
+           PROYECTOS
+        ════════════════════════════════════════════════════════ */
+        #proyectos { text-align: center; }
+        #proyectos .in-progress {
+            display: inline-block;
+            font-family: 'Space Mono', monospace; font-size: 0.6rem;
+            letter-spacing: 4px; text-transform: uppercase;
+            color: var(--gold); opacity: 0.5;
+            border: 1px solid var(--gold-b);
+            padding: 0.7rem 1.8rem; border-radius: 2px;
         }
 
-        /* ── Contacto ───────────────────────────────────── */
+        /* ═══════════════════════════════════════════════════════
+           CONTACTO — split design
+        ════════════════════════════════════════════════════════ */
         #contacto { padding-top: 5rem; padding-bottom: 5rem; }
-        #contacto > p {
-            font-size: 0.98rem;
-            line-height: 1.88;
-            color: var(--muted);
-            max-width: 540px;
-            margin-bottom: 3rem;
+        .contact-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
         }
-        #contacto label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.58rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 0.45rem;
+        @media (min-width: 768px) {
+            .contact-split { grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
         }
-        #contacto input[type="text"],
-        #contacto input[type="email"],
-        #contacto textarea {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            color: var(--warm);
-            font-family: 'Outfit', sans-serif;
-            font-weight: 300;
+        .contact-left { }
+        .contact-left .contact-label {
+            font-family: 'Space Mono', monospace; font-size: 0.58rem;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--gold); display: block; margin-bottom: 1.5rem;
+        }
+        .contact-left .contact-statement {
+            font-family: 'Cormorant Garamond', serif; font-weight: 300;
+            font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2;
+            color: var(--warm); margin: 0 0 2rem;
+            letter-spacing: 0.02em;
+        }
+        .contact-left .contact-statement em {
+            font-style: italic; color: var(--gold);
+        }
+        .contact-left > p {
+            font-size: 0.92rem; line-height: 1.88;
+            color: var(--muted); margin: 0;
+        }
+        /* Form */
+        .contact-right label {
+            font-family: 'Space Mono', monospace; font-size: 0.56rem;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            color: var(--muted); margin-bottom: 0.45rem; display: block;
+        }
+        .contact-right input[type="text"],
+        .contact-right input[type="email"],
+        .contact-right textarea {
+            background: rgba(255,255,255,0.04) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 2px !important;
+            color: var(--warm) !important;
+            font-family: 'Outfit', sans-serif !important;
+            font-weight: 300 !important;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        #contacto input:focus,
-        #contacto textarea:focus {
-            border-color: var(--gold-border);
-            box-shadow: 0 0 0 3px var(--gold-dim);
-            outline: none;
+        .contact-right input:focus,
+        .contact-right textarea:focus {
+            border-color: var(--gold-b) !important;
+            box-shadow: 0 0 0 3px var(--gold-d) !important;
+            outline: none !important;
         }
-        #contacto input[type="submit"] {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 0.9rem 2.8rem;
-            border-radius: 2px;
-            cursor: pointer;
+        .contact-right input[type="text"]::placeholder,
+        .contact-right input[type="email"]::placeholder,
+        .contact-right textarea::placeholder { color: rgba(240,237,230,0.2); }
+        .contact-right input[type="submit"] {
+            font-family: 'Space Mono', monospace !important;
+            font-size: 0.58rem !important; letter-spacing: 3px !important;
+            text-transform: uppercase !important;
+            background: transparent !important;
+            border: 1px solid var(--gold) !important;
+            color: var(--gold) !important;
+            padding: 0.9rem 2.8rem !important; border-radius: 2px !important;
+            cursor: pointer !important;
             transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         }
-        #contacto input[type="submit"]:hover {
-            background: var(--gold);
-            color: #0c0b0e;
-            box-shadow: 0 0 28px var(--gold-glow);
+        .contact-right input[type="submit"]:hover {
+            background: var(--gold) !important; color: #09090e !important;
+            box-shadow: 0 0 28px rgba(201,169,110,0.28) !important;
         }
 
-        /* ── Buttons small ──────────────────────────────── */
+        /* ── Footer ─────────────────────────────────────────── */
+        #footer {
+            padding: 2rem 0; border-top: 1px solid var(--border);
+            display: flex; justify-content: center; align-items: center; background: transparent;
+        }
+        #footer ul { display: flex; flex-direction: column; list-style: none; padding: 0; margin: 0; gap: 0.2rem; }
+        #footer li {
+            font-family: 'Space Mono', monospace; font-size: 0.54rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            text-align: center; color: rgba(240,237,230,0.22); margin: 0; padding: 0;
+        }
+
+        /* ── Buttons ─────────────────────────────────────────── */
         .button.small {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.58rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 2px;
-            padding: 0.5rem 1.3rem;
-            transition: border-color 0.25s ease, color 0.25s ease;
+            font-family: 'Space Mono', monospace; font-size: 0.56rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.18); border-radius: 2px;
+            padding: 0.5rem 1.2rem;
+            transition: border-color 0.25s, color 0.25s;
         }
         .button.small:hover { border-color: var(--gold); color: var(--gold); }
 
-        /* ── Footer ─────────────────────────────────────── */
-        #footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1.8rem 0;
-            border-top: 1px solid var(--border);
-            background: transparent;
-        }
-        #footer ul {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 0.2rem;
-        }
-        #footer li {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.56rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-align: center;
-            color: rgba(240,237,230,0.25);
-            margin: 0;
-            padding: 0;
-        }
+        /* ── Keyframes ──────────────────────────────────────── */
+        @keyframes logoIn { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes lineExp { from { width:0; } to { width:44px; } }
 
-        /* ── Keyframes ──────────────────────────────────── */
-        @keyframes logoIn {
-            from { opacity: 0; transform: translateY(-12px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes lineExpand {
-            from { width: 0; }
-            to   { width: 48px; }
-        }
+        /* ── Scroll reveal ──────────────────────────────────── */
+        .reveal { opacity:0; transform:translateY(24px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        .r1 { transition-delay:0.05s; } .r2 { transition-delay:0.14s; }
+        .r3 { transition-delay:0.23s; } .r4 { transition-delay:0.32s; }
 
-        /* ── Scroll reveal ──────────────────────────────── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(26px);
-            transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
-                        transform 0.9s cubic-bezier(0.16,1,0.3,1);
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .r1 { transition-delay: 0.05s; }
-        .r2 { transition-delay: 0.15s; }
-        .r3 { transition-delay: 0.25s; }
-        .r4 { transition-delay: 0.35s; }
-
-        /* ── Mobile ─────────────────────────────────────── */
+        /* ── Mobile ─────────────────────────────────────────── */
         @media screen and (max-width: 736px) {
-            .lang-selector { top: 1rem; right: 1rem; }
-            #intro { padding-top: 3.5rem !important; padding-bottom: 3rem !important; }
-            .intro-logo { max-width: 110px; }
-            #intro h1 { font-size: 2.1rem; }
-            .service-img { height: 175px; }
-            .team-member { padding: 1.8rem 1.4rem; }
-            .service-card:nth-child(2n) { border-right: 1px solid var(--border); }
-            .service-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
-            .service-card { border-right: none; }
-            #navPanel {
-                width: 220px !important;
-                transform: translateX(-100%) !important;
-                padding-top: 3.5rem !important;
-                padding-left: 1rem !important;
-            }
-            #navPanel .close, #navPanel a.close {
-                top: 0.1rem !important;
-                right: 0.1rem !important;
-            }
+            .lang-selector { top:1rem; right:1rem; }
+            #intro { padding-top:3.5rem !important; padding-bottom:3rem !important; }
+            .intro-logo { max-width:110px; }
+            #intro h1 { font-size:2.1rem; }
+            .team-member { flex-direction:column; align-items:center; text-align:center; }
+            .team-member-info { text-align:center; }
+            .team-member h3, .team-member p, .team-member ul.actions { text-align:center; }
+            .service-card { border-right:none !important; }
+            .service-card:nth-last-child(-n+2) { border-bottom:1px solid var(--border) !important; }
+            .service-card:last-child { border-bottom:none !important; }
+            #navPanel { width:220px !important; transform:translateX(-100%) !important; padding-top:3.5rem !important; padding-left:1rem !important; }
+            #navPanel .close, #navPanel a.close { top:0.1rem !important; right:0.1rem !important; }
         }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation: none !important; transition: none !important; }
-        }
+        @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; transition:none !important; } }
     </style>
 </head>
 <body class="is-preload">
@@ -497,18 +391,15 @@
 
         <header id="header">
             <div class="lang-selector">
-                <a href="/index.html" class="active">ES</a>
-                <span class="separator"></span>
-                <a href="/ca/index.html">CA</a>
-                <span class="separator"></span>
-                <a href="/en/index.html">EN</a>
-                <span class="separator"></span>
+                <a href="/index.html" class="active">ES</a><span class="separator"></span>
+                <a href="/ca/index.html">CA</a><span class="separator"></span>
+                <a href="/en/index.html">EN</a><span class="separator"></span>
                 <a href="/de/index.html">DE</a>
             </div>
         </header>
 
         <div id="intro">
-            <img src="images/logo.png" alt="Frau & Bär Engineering Logo" class="intro-logo" />
+            <img src="images/logo.png" alt="Frau & Bär Engineering" class="intro-logo" />
             <h1>FRAU &amp; BÄR<br />ENGINEERING</h1>
             <p>a firm providing comprehensive engineering</p>
             <ul class="actions">
@@ -531,91 +422,120 @@
 
         <div id="main">
 
+            <!-- ── QUIÉNES SOMOS ── -->
             <section id="quienes-somos">
                 <header class="major reveal"><h2>Quiénes Somos</h2></header>
                 <p class="reveal r1"><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor.</strong></p>
                 <p class="reveal r2">Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
                 <p class="reveal r3">Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible. Porque creemos que la ingeniería del siglo XXI debe ser tan precisa como innovadora.</p>
-                <div class="team-container">
-                    <div class="team-member reveal r1">
-                        <img src="images/murti.png" alt="Murti Bär" class="circle-img" />
-                        <h3>Murti Bär</h3>
-                        <div class="role">Ingeniero Industrial</div>
-                        <p>4 años de experiencia en investigación y desarrollo de redes energéticas, con enfoque en sistemas fotovoltaicos, baterías, eficiencia energética y digitalización de procesos energéticos.</p>
-                        <ul class="actions"><li><a href="https://es.linkedin.com/in/murti-b%C3%A4r" target="_blank" class="button small">Ver perfil LinkedIn</a></li></ul>
+
+                <div class="team-container reveal r4">
+                    <div class="team-member">
+                        <div class="team-member-photo">
+                            <img src="images/murti.png" alt="Murti Bär" class="circle-img" />
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Murti Bär</h3>
+                            <span class="role">Ingeniero Industrial</span>
+                            <p>4 años de experiencia en investigación y desarrollo de redes energéticas, con enfoque en sistemas fotovoltaicos, baterías, eficiencia energética y digitalización de procesos energéticos.</p>
+                            <ul class="actions"><li><a href="https://es.linkedin.com/in/murti-b%C3%A4r" target="_blank" class="button small">LinkedIn</a></li></ul>
+                        </div>
                     </div>
-                    <div class="team-member reveal r2">
-                        <img src="images/angel.png" alt="Àngel Frau" class="circle-img" />
-                        <h3>Àngel Frau</h3>
-                        <div class="role">Ingeniero Industrial</div>
-                        <p>Con 7 años de experiencia liderando proyectos integrales de ingeniería, desde el diseño conceptual hasta la ejecución y puesta en marcha. Apasionado por soluciones técnicas eficientes y la transformación digital en el sector.</p>
-                        <ul class="actions"><li><a href="https://es.linkedin.com/in/angel-frau-40b999179" target="_blank" class="button small">Ver perfil LinkedIn</a></li></ul>
+                    <div class="team-member">
+                        <div class="team-member-photo">
+                            <img src="images/angel.png" alt="Àngel Frau" class="circle-img" />
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Àngel Frau</h3>
+                            <span class="role">Ingeniero Industrial</span>
+                            <p>Con 7 años de experiencia liderando proyectos integrales de ingeniería, desde el diseño conceptual hasta la ejecución y puesta en marcha. Apasionado por soluciones técnicas eficientes y la transformación digital en el sector.</p>
+                            <ul class="actions"><li><a href="https://es.linkedin.com/in/angel-frau-40b999179" target="_blank" class="button small">LinkedIn</a></li></ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <!-- ── SERVICIOS ── -->
             <section id="servicios">
                 <header class="major reveal"><h2>Servicios</h2></header>
-                <div class="services-intro reveal r1">
-                    <p>Ofrecemos servicios completos de ingeniería industrial y consultoría técnica con un enfoque en la excelencia técnica, la eficiencia y la innovación. Cubrimos todas las fases del proyecto, desde la concepción hasta la optimización continua.</p>
-                </div>
+                <p class="services-intro reveal r1">Ofrecemos servicios completos de ingeniería industrial y consultoría técnica con un enfoque en la excelencia técnica, la eficiencia y la innovación. Cubrimos todas las fases del proyecto, desde la concepción hasta la optimización continua.</p>
                 <div class="services-grid">
                     <div class="service-card reveal r1">
-                        <img src="images/servicios1.jpg" alt="Ingeniería y Consultoría Técnica" class="service-img">
+                        <div class="service-img-wrap">
+                            <img src="images/servicios1.jpg" alt="Ingeniería y Consultoría Técnica" class="service-img">
+                        </div>
                         <div class="service-content">
                             <h3>Ingeniería y Consultoría Técnica</h3>
                             <p>Planificación, diseño, cálculo y redacción de estudios, informes, dictámenes, memorias, anteproyectos y proyectos completos. Dirección, supervisión, coordinación, asistencia técnica, puesta en marcha y seguimiento de obras e instalaciones.</p>
                         </div>
                     </div>
                     <div class="service-card reveal r2">
-                        <img src="images/servicios2.jpg" alt="Ingeniería de Instalaciones y Sistemas" class="service-img">
+                        <div class="service-img-wrap">
+                            <img src="images/servicios2.jpg" alt="Ingeniería de Instalaciones y Sistemas" class="service-img">
+                        </div>
                         <div class="service-content">
                             <h3>Ingeniería de Instalaciones y Sistemas</h3>
-                            <p>Instalaciones eléctricas, de comunicaciones, térmicas, climatización y ventilación. Energías renovables, eficiencia energética, auditorías energéticas, automatización, control, monitorización e instrumentación. Modelización, simulación y optimización de sistemas en edificios, industria e infraestructuras.</p>
+                            <p>Instalaciones eléctricas, de comunicaciones, térmicas, climatización y ventilación. Energías renovables, eficiencia energética, auditorías energéticas, automatización, control, monitorización e instrumentación.</p>
                         </div>
                     </div>
                     <div class="service-card reveal r3">
-                        <img src="images/servicios3.png" alt="Gestión de Proyectos y Contratación" class="service-img">
+                        <div class="service-img-wrap">
+                            <img src="images/servicios3.png" alt="Gestión de Proyectos y Contratación" class="service-img">
+                        </div>
                         <div class="service-content">
                             <h3>Gestión de Proyectos y Contratación</h3>
                             <p>Project management, coordinación técnica, soporte en licitaciones, elaboración de pliegos y documentación para contratación, mediciones, presupuestos y apoyo integral a la dirección facultativa.</p>
                         </div>
                     </div>
                     <div class="service-card reveal r4">
-                        <img src="images/servicios4.jpg" alt="I+D+i y Transformación Digital" class="service-img">
+                        <div class="service-img-wrap">
+                            <img src="images/servicios4.jpg" alt="I+D+i y Transformación Digital" class="service-img">
+                        </div>
                         <div class="service-content">
                             <h3>I+D+i y Transformación Digital</h3>
-                            <p>Investigación, desarrollo e innovación. Diseño, implantación y comercialización de soluciones tecnológicas: software, herramientas digitales, sistemas inteligentes, inteligencia artificial, análisis predictivo, modelización avanzada y optimización algorítmica.</p>
+                            <p>Investigación, desarrollo e innovación. Diseño, implantación y comercialización de soluciones tecnológicas: software, herramientas digitales, sistemas inteligentes, inteligencia artificial y optimización algorítmica.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- ── PROYECTOS ── -->
             <section id="proyectos">
                 <header class="major reveal"><h2>Proyectos</h2></header>
-                <p style="text-align:center; font-size:1.2rem; opacity:0.8;">EN ELABORACIÓN</p>
+                <div style="text-align:center;" class="reveal r1">
+                    <span class="in-progress">En elaboración</span>
+                </div>
             </section>
 
+            <!-- ── CONTACTO ── -->
             <section id="contacto">
                 <header class="major reveal"><h2>Contacto</h2></header>
-                <p>Contáctenos y le responderemos en un máximo de 24–48 horas laborables con información clara y profesional sobre su consulta.</p>
-                <form method="post" action="#">
-                    <div class="fields">
-                        <div class="field">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" />
-                        </div>
-                        <div class="field">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" />
-                        </div>
-                        <div class="field">
-                            <label for="message">Mensaje</label>
-                            <textarea name="message" id="message" rows="3"></textarea>
-                        </div>
+                <div class="contact-split">
+                    <div class="contact-left reveal r1">
+                        <span class="contact-label">Hablemos</span>
+                        <p class="contact-statement">Cada proyecto<br />empieza con una<br /><em>conversación.</em></p>
+                        <p>Contáctenos y le responderemos en un máximo de 24–48 horas laborables con información clara y profesional sobre su consulta.</p>
                     </div>
-                    <ul class="actions"><li><input type="submit" value="Enviar consulta" /></li></ul>
-                </form>
+                    <div class="contact-right reveal r2">
+                        <form method="post" action="#">
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" name="name" id="name" />
+                                </div>
+                                <div class="field">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" />
+                                </div>
+                                <div class="field">
+                                    <label for="message">Mensaje</label>
+                                    <textarea name="message" id="message" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <ul class="actions"><li><input type="submit" value="Enviar consulta" /></li></ul>
+                        </form>
+                    </div>
+                </div>
             </section>
         </div>
 
@@ -637,14 +557,9 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    io.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.1 });
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.08 });
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
 </body>
