@@ -15,8 +15,8 @@
             --gold:    #C9A96E;
             --gold-d:  rgba(201,169,110,0.12);
             --gold-b:  rgba(201,169,110,0.30);
-            --bg:      #09090e;
-            --bg2:     rgba(255,255,255,0.035);
+            --bg:      rgba(8,10,16,0.78);
+            --bg2:     rgba(255,255,255,0.028);
             --border:  rgba(255,255,255,0.08);
             --warm:    #f0ede6;
             --muted:   rgba(240,237,230,0.52);
@@ -152,7 +152,7 @@
 
         .team-member-photo { flex-shrink: 0; }
         .circle-img {
-            width: 88px; height: 88px; border-radius: 50%;
+            width: 116px; height: 116px; border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--gold-b);
             box-shadow: 0 0 0 5px var(--gold-d);
@@ -331,21 +331,37 @@
             transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
         }
         .contact-right input[type="submit"]:hover {
-            background: var(--gold) !important; color: #09090e !important;
+            background: var(--gold) !important; color: #060810 !important;
             box-shadow: 0 0 28px rgba(201,169,110,0.28) !important;
         }
 
         /* ── Footer ─────────────────────────────────────────── */
-        #footer {
-            padding: 2rem 0; border-top: 1px solid var(--border);
-            display: flex; justify-content: center; align-items: center; background: transparent;
+        #footer,
+        #footer .inner {
+            padding: 1.4rem 0 !important;
+            min-height: unset !important;
+            border-top: 1px solid var(--border) !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            background: transparent !important;
         }
-        #footer ul { display: flex; flex-direction: column; list-style: none; padding: 0; margin: 0; gap: 0.2rem; }
+        #footer ul {
+            display: flex; flex-direction: column;
+            list-style: none; padding: 0; margin: 0; gap: 0.15rem;
+        }
         #footer li {
-            font-family: 'Space Mono', monospace; font-size: 0.54rem;
+            font-family: 'Space Mono', monospace; font-size: 0.52rem;
             letter-spacing: 2px; text-transform: uppercase;
-            text-align: center; color: rgba(240,237,230,0.22); margin: 0; padding: 0;
+            text-align: center; color: rgba(240,237,230,0.2);
+            margin: 0; padding: 0;
         }
+        /* kill any separator pseudo-elements the template injects */
+        #footer li::before,
+        #footer li::after,
+        #copyright li::before,
+        #copyright li::after { content: '' !important; display: none !important; }
+        #copyright { text-align: center; width: 100%; }
 
         /* ── Buttons ─────────────────────────────────────────── */
         .button.small {
