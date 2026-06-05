@@ -12,15 +12,15 @@
 html{scroll-behavior:smooth;font-size:16px}
 
 :root{
-  --gold:#C9A96E;
-  --gold-bright:#E0B96A;
-  --gold-dim:rgba(201,169,110,0.10);
-  --gold-border:rgba(201,169,110,0.28);
-  --bg:#0b0c11;
-  --bg-lift:rgba(255,255,255,0.038);
-  --border:rgba(255,255,255,0.07);
+  --gold:#D4A85A;
+  --gold-bright:#EAC06A;
+  --gold-dim:rgba(212,168,90,0.14);
+  --gold-border:rgba(212,168,90,0.38);
+  --bg:#13141c;
+  --bg-lift:rgba(255,255,255,0.055);
+  --border:rgba(255,255,255,0.10);
   --warm:#F0EDE6;
-  --muted:rgba(240,237,230,0.50);
+  --muted:rgba(240,237,230,0.62);
   --max:1120px;
   --pad:clamp(1.5rem,5vw,3rem);
 }
@@ -55,7 +55,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 ════════════════════════════════════════════════════════ */
 #site-nav{
   position:sticky;top:0;z-index:1000;
-  background:rgba(11,12,17,0.92);
+  background:rgba(17,18,26,0.93);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--gold-border);
 }
@@ -96,7 +96,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 #mobile-menu{
   display:none;
   position:fixed;inset:0;z-index:999;
-  background:rgba(11,12,17,0.98);
+  background:rgba(16,17,24,0.99);
   flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;
 }
 #mobile-menu.open{display:flex}
@@ -123,7 +123,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
   min-height:92vh;display:flex;flex-direction:column;
   justify-content:center;align-items:center;text-align:center;
   padding:6rem var(--pad) 4rem;
-  background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,169,110,.055) 0%, transparent 70%);
+  background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,168,90,.09) 0%, transparent 70%);
   position:relative;
 }
 #hero::before{
