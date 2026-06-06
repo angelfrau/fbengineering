@@ -1,4 +1,3 @@
-ML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +10,7 @@ ML
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
- 
+
 :root{
   --gold:#D4A85A;
   --gold-bright:#EAC06A;
@@ -25,7 +24,7 @@ html{scroll-behavior:smooth;font-size:16px}
   --max:1120px;
   --pad:clamp(1.5rem,5vw,3rem);
 }
- 
+
 /* ── Grain ─────────────────────────────────────────── */
 body{
   background:#3a3028;
@@ -43,16 +42,16 @@ body::after{
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:180px;
 }
- 
+
 /* ── Typography ─────────────────────────────────────── */
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.1}
 .mono{font-family:'Space Mono',monospace}
- 
+
 /* ── Utility ────────────────────────────────────────── */
 .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 .gold-line{display:block;width:32px;height:1px;background:var(--gold);margin:.65rem 0 0}
 .gold-line--center{margin:.65rem auto 0}
- 
+
 /* ═══════════════════════════════════════════════════════
    NAV
 ════════════════════════════════════════════════════════ */
@@ -93,7 +92,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 .nav-lang a:hover,.nav-lang a.active{color:var(--gold)}
 .nav-lang .sep{width:1px;height:9px;background:rgba(255,255,255,0.15);flex-shrink:0}
 .nav-right{display:flex;align-items:center;gap:2rem;height:100%}
- 
+
 /* Mobile hamburger */
 .nav-toggle{
   display:none;background:none;border:none;
@@ -123,7 +122,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
   .nav-links,.nav-lang{display:none}
   .nav-toggle{display:block}
 }
- 
+
 /* ═══════════════════════════════════════════════════════
    HERO
 ════════════════════════════════════════════════════════ */
@@ -168,7 +167,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 }
 .hero-scroll:hover{color:var(--gold)}
 .hero-scroll svg{animation:bounceY 2s 2s ease-in-out infinite}
- 
+
 /* ═══════════════════════════════════════════════════════
    SECTIONS
 ════════════════════════════════════════════════════════ */
@@ -183,7 +182,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   content:'';display:block;width:32px;height:1px;
   background:var(--gold);margin:.7rem auto 0;
 }
- 
+
 /* ═══════════════════════════════════════════════════════
    QUIÉNES SOMOS
 ════════════════════════════════════════════════════════ */
@@ -195,7 +194,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   color:rgba(240,237,230,.75);margin-bottom:1.6rem;
 }
 #quienes-somos strong{color:var(--warm);font-weight:500}
- 
+
 /* Team cards */
 .team-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:1px;
@@ -239,7 +238,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   align-self:flex-start;
 }
 .team-link:hover{border-color:var(--gold);color:var(--gold)}
- 
+
 /* ═══════════════════════════════════════════════════════
    SERVICIOS — numbered editorial grid
 ════════════════════════════════════════════════════════ */
@@ -300,7 +299,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   font-size:.87rem;line-height:1.85;
   color:var(--muted);margin-top:.9rem;hyphens:auto;
 }
- 
+
 /* ═══════════════════════════════════════════════════════
    PROYECTOS
 ════════════════════════════════════════════════════════ */
@@ -313,7 +312,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   border:1px solid var(--gold-border);
   padding:.65rem 1.8rem;border-radius:2px;
 }
- 
+
 /* ═══════════════════════════════════════════════════════
    CONTACTO — split layout
 ════════════════════════════════════════════════════════ */
@@ -372,7 +371,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   background:var(--gold);color:#0b0c11;
   box-shadow:0 0 28px rgba(201,169,110,.3);
 }
- 
+
 /* ═══════════════════════════════════════════════════════
    FOOTER
 ════════════════════════════════════════════════════════ */
@@ -386,14 +385,14 @@ footer{
   letter-spacing:2px;text-transform:uppercase;
   color:rgba(240,237,230,.45);text-align:center;
 }
- 
+
 /* ═══════════════════════════════════════════════════════
    SCROLL REVEAL
 ════════════════════════════════════════════════════════ */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 .r2{transition-delay:.12s}.r3{transition-delay:.22s}.r4{transition-delay:.32s}
- 
+
 /* ═══════════════════════════════════════════════════════
    KEYFRAMES
 ════════════════════════════════════════════════════════ */
@@ -401,7 +400,7 @@ footer{
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bounceY{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
- 
+
         .contact-divider{width:100%;height:1px;background:var(--border);margin:1.6rem 0}
         .contact-numbers{display:flex;flex-direction:column;gap:1.2rem}
         .contact-person-name{font-family:'Space Mono',monospace;font-size:.54rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.5rem}
@@ -413,7 +412,7 @@ footer{
         .contact-icon:hover{border-color:var(--gold);background:rgba(201,169,110,.08)}
         .contact-icon svg{width:13px;height:13px;fill:rgba(240,237,230,.5);transition:fill .25s}
         .contact-icon:hover svg{fill:var(--gold)}
- 
+
         .form-success{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:3rem 2rem;gap:1rem}
         .form-success-icon{font-size:2.5rem;color:var(--gold);line-height:1}
         .form-success-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--warm);letter-spacing:.08em}
@@ -421,7 +420,7 @@ footer{
 </style>
 </head>
 <body>
- 
+
 <!-- ── NAV ── -->
 <nav id="site-nav">
   <div class="nav-inner">
@@ -436,7 +435,7 @@ footer{
       <div class="nav-lang">
         <a href="../index.html" >ES</a><span class="sep"></span>
         <a href="../ca/index.html">CA</a><span class="sep"></span>
-        <a href="../en/index.html"class="active">EN</a><span class="sep"></span>
+        <a href="./index.html"class="active">EN</a><span class="sep"></span>
         <a href="../de/index.html">DE</a>
       </div>
       <button class="nav-toggle" id="menu-btn" aria-label="Menú">
@@ -449,7 +448,7 @@ footer{
     </div>
   </div>
 </nav>
- 
+
 <!-- Mobile menu -->
 <div id="mobile-menu">
   <button class="menu-close mono" id="menu-close">✕ CERRAR</button>
@@ -458,7 +457,7 @@ footer{
   <a href="#proyectos" class="mobile-link">Proyectos</a>
   <a href="#contacto" class="mobile-link">Contacto</a>
 </div>
- 
+
 <!-- ── HERO ── -->
 <section id="hero">
   <img src="../images/logo.png" alt="Frau & Bär Engineering" class="hero-logo"/>
@@ -472,7 +471,7 @@ footer{
     </svg>
   </a>
 </section>
- 
+
 <!-- ── QUIÉNES SOMOS ── -->
 <section id="quienes-somos">
   <div class="container">
@@ -508,7 +507,7 @@ footer{
     </div>
   </div>
 </section>
- 
+
 <!-- ── SERVICIOS ── -->
 <section id="servicios">
   <div class="container">
@@ -558,7 +557,7 @@ footer{
     </div>
   </div>
 </section>
- 
+
 <!-- ── PROYECTOS ── -->
 <section id="proyectos">
   <div class="container">
@@ -568,7 +567,7 @@ footer{
     </div>
   </div>
 </section>
- 
+
 <!-- ── CONTACTO ── -->
 <section id="contacto">
   <div class="container">
@@ -628,12 +627,12 @@ footer{
     </div>
   </div>
 </section>
- 
+
 <!-- ── FOOTER ── -->
 <footer>
   <p class="footer-text">© 2026 Frau &amp; Bär Engineering</p><p class="footer-text" style="margin-top:.25rem">All Rights Reserved</p>
 </footer>
- 
+
 <script>
 // Mobile menu
 var btn=document.getElementById('menu-btn');
@@ -646,13 +645,13 @@ cls.addEventListener('click',closeMenu);
 document.querySelectorAll('.mobile-link').forEach(function(a){
   a.addEventListener('click',closeMenu);
 });
- 
+
 // Scroll reveal
 var io=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
 },{threshold:.08});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
- 
+
 // Nav active link on scroll
 var sections=document.querySelectorAll('section[id]');
 var navLinks=document.querySelectorAll('.nav-links a');
@@ -666,7 +665,7 @@ window.addEventListener('scroll',function(){
     }
   });
 },{passive:true});
- 
+
 // Form — stay on page, no Formspree redirect
 var contactForm = document.getElementById('contact-form');
 if (contactForm) {
