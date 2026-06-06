@@ -352,8 +352,8 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   transition:border-color .3s,box-shadow .3s;
 }
 .form-field textarea{min-height:130px;resize:vertical}
-        .form-field:last-of-type{display:flex;flex-direction:column;margin-bottom:0}
-        .form-field:last-of-type textarea{resize:none;min-height:150px}
+        .form-field:last-of-type{flex:1;display:flex;flex-direction:column;margin-bottom:0}
+        .form-field:last-of-type textarea{flex:1;resize:none;min-height:80px}
 .form-field input:focus,
 .form-field textarea:focus{
   border-color:var(--gold-border);
@@ -364,7 +364,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
   letter-spacing:3px;text-transform:uppercase;
   background:transparent;border:1px solid var(--gold);
   color:var(--gold);padding:.9rem 2.5rem;
-  border-radius:2px;cursor:pointer;margin-top:.5rem;
+  border-radius:2px;cursor:pointer;margin-top:1.4rem;
   transition:background .3s,color .3s,box-shadow .3s;
 }
 .form-submit:hover{
@@ -378,7 +378,7 @@ section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:
 footer{
   border-top:1px solid var(--border);
   padding:1.6rem var(--pad);
-  display:flex;justify-content:center;align-items:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.3rem;
 }
 .footer-text{
   font-family:'Space Mono',monospace;font-size:.5rem;
@@ -412,6 +412,11 @@ footer{
         .contact-icon:hover{border-color:var(--gold);background:rgba(201,169,110,.08)}
         .contact-icon svg{width:13px;height:13px;fill:rgba(240,237,230,.5);transition:fill .25s}
         .contact-icon:hover svg{fill:var(--gold)}
+
+        .form-success{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:3rem 2rem;gap:1rem}
+        .form-success-icon{font-size:2.5rem;color:var(--gold);line-height:1}
+        .form-success-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--warm);letter-spacing:.08em}
+        .form-success-text{font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--muted);line-height:1.8;max-width:320px}
 </style>
 </head>
 <body>
@@ -604,7 +609,7 @@ footer{
           </div>
         </div>
       </div>
-      <form class="reveal r3" method="post" action="https://formspree.io/f/xzdqdonb" style="display:flex;flex-direction:column;height:100%;gap:0">
+      <form id="contact-form" class="reveal r3" style="display:flex;flex-direction:column;height:100%;gap:0">
         <div class="form-field">
           <label for="name">Nombre</label>
           <input type="text" id="name" name="name" autocomplete="name"/>
@@ -625,7 +630,7 @@ footer{
 
 <!-- ── FOOTER ── -->
 <footer>
-  <p class="footer-text">© 2026 Frau &amp; Bär Engineering &nbsp;·&nbsp; All Rights Reserved</p>
+  <p class="footer-text">© 2026 Frau &amp; Bär Engineering</p><p class="footer-text" style="margin-top:.25rem">All Rights Reserved</p>
 </footer>
 
 <script>
@@ -660,6 +665,33 @@ window.addEventListener('scroll',function(){
     }
   });
 },{passive:true});
+
+// Form — stay on page, no Formspree redirect
+var contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = contactForm.querySelector('.form-submit');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://formspree.io/f/xzdqdonb', {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        contactForm.innerHTML = '<div class="form-success"><p class="form-success-icon">✓</p><p class="form-success-title">Mensaje recibido</p><p class="form-success-text">Os responderemos en un máximo de 24–48 horas laborables.</p></div>';
+      } else {
+        btn.textContent = 'Error — inténtalo de nuevo';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Error — inténtalo de nuevo';
+      btn.disabled = false;
+    }
+  });
+}
 </script>
 </body>
 </html>
