@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -119,7 +119,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
   font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:2px;padding:.5rem;
 }
 @media(max-width:768px){
-  .nav-links,.nav-lang{display:none}
+  .nav-links{display:none}
   .nav-toggle{display:block}
 }
 
@@ -422,6 +422,35 @@ footer{
         .hero-sub-wrap{position:relative;min-height:3.4rem;width:clamp(280px,55vw,580px);}
         .hero-sub-item{position:absolute;top:0;left:0;width:100%;font-size:1rem;color:var(--muted);line-height:1.7;text-align:center;opacity:0;transition:opacity 1s ease;pointer-events:none;}
         .hero-sub-item.active{opacity:1;pointer-events:auto}
+        
+        /* ── MOBILE ONLY ── */
+        @media(max-width:768px){
+          /* Hero spacing */
+          #hero{padding:1rem var(--pad) 1.5rem}
+          .hero-logo{width:clamp(90px,32vw,130px);margin-bottom:0.6rem}
+          .hero-eyebrow{font-size:0.48rem;margin-bottom:0.7rem}
+          .hero-title{font-size:clamp(2.2rem,11vw,4rem);margin-bottom:0.5rem}
+          .hero-sub-wrap{min-height:4.5rem;width:88vw}
+          .hero-sub-item{font-size:0.82rem;line-height:1.55}
+          .hero-scroll{margin-top:0.5rem}
+          /* Mobile lang bar inside menu */
+          .mobile-lang-bar{
+            display:flex;align-items:center;gap:0.6rem;
+            margin-top:1.5rem;
+            font-family:'Space Mono',monospace;
+            font-size:0.65rem;letter-spacing:3px;
+          }
+          .mobile-lang-bar a{color:rgba(240,237,230,0.45);text-decoration:none;transition:color .2s}
+          .mobile-lang-bar a:hover,.mobile-lang-bar a.active{color:var(--gold)}
+          .mobile-lang-bar .sep{width:1px;height:9px;background:rgba(255,255,255,0.2)}
+        }
+        
+          /* Lang visible on mobile nav */
+          @media(max-width:768px){
+            .nav-lang{display:flex;gap:.35rem;font-size:.5rem;letter-spacing:1.5px}
+            .nav-lang .sep{height:7px}
+            .nav-toggle{margin-left:.5rem}
+          }
         </style>
 </head>
 <body>
@@ -431,17 +460,17 @@ footer{
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">FRAU <span>&</span> BÄR</a>
     <ul class="nav-links">
-      <li><a href="#quienes-somos">Über uns</a></li>
-      <li><a href="#servicios">Leistungen</a></li>
-      <li><a href="#proyectos">Projekte</a></li>
-      <li><a href="#contacto">Kontakt</a></li>
+      <li><a href="#quienes-somos">Quiénes Somos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-lang">
-        <a href="../index.html" >ES</a><span class="sep"></span>
-        <a href="../ca/index.html">CA</a><span class="sep"></span>
-        <a href="../en/index.html">EN</a><span class="sep"></span>
-        <a href="./index.html" class="active">DE</a>
+        <a href="./index.html" class="active">ES</a><span class="sep"></span>
+        <a href="ca/index.html">CA</a><span class="sep"></span>
+        <a href="en/index.html">EN</a><span class="sep"></span>
+        <a href="de/index.html">DE</a>
       </div>
       <button class="nav-toggle" id="menu-btn" aria-label="Menú">
         <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
@@ -456,21 +485,30 @@ footer{
 
 <!-- Mobile menu -->
 <div id="mobile-menu">
-  <button class="menu-close mono" id="menu-close">✕ SCHLIEẞEN</button>
-  <a href="#quienes-somos" class="mobile-link">Über uns</a>
-  <a href="#servicios" class="mobile-link">Leistungen</a>
-  <a href="#proyectos" class="mobile-link">Projekte</a>
-  <a href="#contacto" class="mobile-link">Kontakt</a>
+  <button class="menu-close mono" id="menu-close">✕ CERRAR</button>
+  <a href="#quienes-somos" class="mobile-link">Quiénes Somos</a>
+  <a href="#servicios" class="mobile-link">Servicios</a>
+  <a href="#proyectos" class="mobile-link">Proyectos</a>
+  <a href="#contacto" class="mobile-link">Contacto</a>
+  <div class="mobile-lang-bar">
+    <a href="./index.html" class="active">ES</a>
+    <span class="sep"></span>
+    <a href="ca/index.html">CA</a>
+    <span class="sep"></span>
+    <a href="en/index.html">EN</a>
+    <span class="sep"></span>
+    <a href="de/index.html">DE</a>
+  </div>
 </div>
 
 <!-- ── HERO ── -->
 <section id="hero">
-  <img src="../images/logo.png" alt="Frau & Bär Engineering" class="hero-logo"/>
-  <p class="hero-eyebrow">Industrieingenieurwesen · Mallorca</p>
+  <img src="images/logo.png" alt="Frau & Bär Engineering" class="hero-logo"/>
+  <p class="hero-eyebrow">Ingeniería Industrial · Mallorca</p>
   <h1 class="hero-title">FRAU &amp; BÄR<br/><em>ENGINEERING</em></h1>
-  <div class="hero-sub-wrap"><p class="hero-sub-item active">Ein Ingenieurbüro für umfassende Lösungen — vom Konzept bis zur Inbetriebnahme.</p><p class="hero-sub-item">Un estudio de ingeniería integral — del concepto a la puesta en marcha.</p><p class="hero-sub-item">Una firma d'enginyeria industrial — del concepte a la posada en marxa.</p><p class="hero-sub-item">A firm providing comprehensive engineering solutions — from concept to commissioning.</p></div>
+  <div class="hero-sub-wrap"><p class="hero-sub-item active">Un estudio de ingeniería integral — del concepto a la puesta en marcha.</p><p class="hero-sub-item">Una firma d'enginyeria industrial — del concepte a la posada en marxa.</p><p class="hero-sub-item">A firm providing comprehensive engineering solutions — from concept to commissioning.</p><p class="hero-sub-item">Ein Ingenieurbüro für umfassende Lösungen — vom Konzept bis zur Inbetriebnahme.</p></div>
   <a href="#quienes-somos" class="hero-scroll">
-    ENTDECKEN
+    DESCUBRIR
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
       <path d="M6 1v10M1 7l5 5 5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -480,33 +518,33 @@ footer{
 <!-- ── QUIÉNES SOMOS ── -->
 <section id="quienes-somos">
   <div class="container">
-    <h2 class="section-title reveal">Über uns</h2>
+    <h2 class="section-title reveal">Quiénes Somos</h2>
     <div class="intro-text">
       <p class="reveal r2"><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor.</strong></p>
-      <p class="reveal r3">Wir sind Murti Bär und Àngel Frau, Ingenieure. Wir verbinden technische Genauigkeit, Detailgenauigkeit und eine klare Zukunftsvision: die <strong>Digitalisierung der Industrie</strong>.</p>
-      <p class="reveal r4">Unsere Arbeitsweise ist einfach, aber anspruchsvoll: Wir hören dem Kunden zu, entwickeln maßgeschneiderte Lösungen und setzen sie mit der besten verfügbaren Technologie um.</p>
+      <p class="reveal r3">Somos Murti Bär y Àngel Frau, ingenieros industriales. Combinamos rigor técnico, atención al detalle y una visión clara del futuro: la <strong>digitalización de la industria</strong>.</p>
+      <p class="reveal r4">Nuestra forma de trabajar es sencilla pero exigente: escuchamos al cliente, diseñamos soluciones a medida y las ejecutamos con la mejor tecnología disponible.</p>
     </div>
     <div class="team-grid reveal">
       <div class="team-card">
         <div class="team-card-top">
-          <img src="../images/murti.png" alt="Murti Bär" class="team-photo"/>
+          <img src="images/murti.png" alt="Murti Bär" class="team-photo"/>
           <div>
             <h3>Murti Bär</h3>
-            <span class="role">Ingenieur</span>
+            <span class="role">Ingeniero Industrial</span>
           </div>
         </div>
-        <p>4 Jahre Erfahrung in Forschung und Entwicklung von Energienetzen, mit Schwerpunkt auf Photovoltaiksystemen, Batterien, Energieeffizienz und Prozessdigitalisierung.</p>
+        <p>4 años de experiencia en investigación y desarrollo de redes energéticas, con enfoque en sistemas fotovoltaicos, baterías, eficiencia energética y digitalización de procesos.</p>
         <a href="https://es.linkedin.com/in/murti-b%C3%A4r" target="_blank" class="team-link">LinkedIn →</a>
       </div>
       <div class="team-card">
         <div class="team-card-top">
-          <img src="../images/angel.png" alt="Àngel Frau" class="team-photo"/>
+          <img src="images/angel.png" alt="Àngel Frau" class="team-photo"/>
           <div>
             <h3>Àngel Frau</h3>
-            <span class="role">Ingenieur</span>
+            <span class="role">Ingeniero Industrial</span>
           </div>
         </div>
-        <p>Mit 7 Jahren Erfahrung in der Leitung umfassender Ingenieurprojekte, vom konzeptionellen Design bis zur Ausführung und Inbetriebnahme. Begeistert von der digitalen Transformation im Sektor.</p>
+        <p>Con 7 años de experiencia liderando proyectos integrales de ingeniería, desde el diseño conceptual hasta la ejecución y puesta en marcha. Apasionado por la transformación digital en el sector.</p>
         <a href="https://es.linkedin.com/in/angel-frau-40b999179" target="_blank" class="team-link">LinkedIn →</a>
       </div>
     </div>
@@ -516,47 +554,47 @@ footer{
 <!-- ── SERVICIOS ── -->
 <section id="servicios">
   <div class="container">
-    <h2 class="section-title reveal">Leistungen</h2>
-    <p class="services-lead reveal r2">Umfassende Industrieingenieur- und technische Beratungsleistungen. Wir decken alle Projektphasen ab, von der Konzeption bis zur kontinuierlichen Optimierung.</p>
+    <h2 class="section-title reveal">Servicios</h2>
+    <p class="services-lead reveal r2">Servicios completos de ingeniería industrial y consultoría técnica. Cubrimos todas las fases del proyecto, desde la concepción hasta la optimización continua.</p>
     <div class="services-grid">
       <div class="svc-card reveal r2">
         <div class="svc-img-wrap">
-          <img src="../images/servicios1.jpg" alt="" class="svc-img"/>
+          <img src="images/servicios1.jpg" alt="" class="svc-img"/>
           <span class="svc-num">01</span>
         </div>
         <div class="svc-body">
-          <h3>Ingenieurwesen &amp; Beratung</h3>
-          <p>Planung, Entwurf, Berechnung und Erstellung von Studien, Berichten, technischen Dokumenten und vollständigen Projekten. Projektleitung, Überwachung, technische Unterstützung und Inbetriebnahme.</p>
+          <h3>Ingeniería y Consultoría Técnica</h3>
+          <p>Planificación, diseño, cálculo y redacción de estudios, informes, memorias, anteproyectos y proyectos completos. Dirección, supervisión, asistencia técnica y puesta en marcha.</p>
         </div>
       </div>
       <div class="svc-card reveal r3">
         <div class="svc-img-wrap">
-          <img src="../images/servicios2.jpg" alt="" class="svc-img"/>
+          <img src="images/servicios2.jpg" alt="" class="svc-img"/>
           <span class="svc-num">02</span>
         </div>
         <div class="svc-body">
-          <h3>Anlagen &amp; Systemtechnik</h3>
-          <p>Elektro-, Wärme-, Klima- und Lüftungsanlagen. Erneuerbare Energien, Energieeffizienz, Automatisierung, Steuerung und Überwachung von Systemen.</p>
+          <h3>Ingeniería de Instalaciones y Sistemas</h3>
+          <p>Instalaciones eléctricas, térmicas, climatización y ventilación. Energías renovables, eficiencia energética, automatización, control y monitorización de sistemas.</p>
         </div>
       </div>
       <div class="svc-card reveal r2">
         <div class="svc-img-wrap">
-          <img src="../images/servicios3.png" alt="" class="svc-img"/>
+          <img src="images/servicios3.png" alt="" class="svc-img"/>
           <span class="svc-num">03</span>
         </div>
         <div class="svc-body">
-          <h3>Projektmanagement &amp; Vergabe</h3>
-          <p>Projektmanagement, technische Koordination, Ausschreibungsunterstützung, Leistungsverzeichnisse, Aufmaße, Kostenschätzungen und Bauleitung.</p>
+          <h3>Gestión de Proyectos y Contratación</h3>
+          <p>Project management, coordinación técnica, soporte en licitaciones, elaboración de pliegos, mediciones, presupuestos y apoyo a la dirección facultativa.</p>
         </div>
       </div>
       <div class="svc-card reveal r3">
         <div class="svc-img-wrap">
-          <img src="../images/servicios4.jpg" alt="" class="svc-img"/>
+          <img src="images/servicios4.jpg" alt="" class="svc-img"/>
           <span class="svc-num">04</span>
         </div>
         <div class="svc-body">
-          <h3>F&amp;E &amp; Digitale Transformation</h3>
-          <p>Forschung, Entwicklung und Innovation. Technologische Lösungen: Software, Künstliche Intelligenz, Predictive Analytics, avancierte Modellierung und algorithmische Optimierung.</p>
+          <h3>I+D+i y Transformación Digital</h3>
+          <p>Investigación, desarrollo e innovación. Soluciones tecnológicas: software, inteligencia artificial, análisis predictivo, modelización avanzada y optimización algorítmica.</p>
         </div>
       </div>
     </div>
@@ -566,9 +604,9 @@ footer{
 <!-- ── PROYECTOS ── -->
 <section id="proyectos">
   <div class="container">
-    <h2 class="section-title reveal">Projekte</h2>
+    <h2 class="section-title reveal">Proyectos</h2>
     <div class="reveal r2">
-      <span class="badge-pending">In Bearbeitung</span>
+      <span class="badge-pending">En elaboración</span>
     </div>
   </div>
 </section>
@@ -576,12 +614,12 @@ footer{
 <!-- ── CONTACTO ── -->
 <section id="contacto">
   <div class="container">
-    <h2 class="section-title reveal">Kontakt</h2>
+    <h2 class="section-title reveal">Contacto</h2>
     <div class="contact-wrap">
       <div class="reveal r2">
         <span class="contact-label">Hablemos</span>
-        <p class="contact-statement">Jedes Projekt<br/>beginnt mit einem<br/><em>Gespräch.</em></p>
-        <p>Wir antworten innerhalb von 24–48 Werktagen mit klaren und professionellen Informationen.</p>
+        <p class="contact-statement">Cada proyecto<br/>empieza con una<br/><em>conversación.</em></p>
+        <p>Responderemos en un máximo de 24–48 horas laborables con información clara y profesional.</p>
         <div class="contact-divider"></div>
         <div class="contact-numbers">
           <div class="contact-person">
@@ -616,18 +654,18 @@ footer{
       </div>
       <form id="contact-form" class="reveal r3" style="display:flex;flex-direction:column;height:100%;gap:0">
         <div class="form-field">
-          <label for="name">Name</label>
+          <label for="name">Nombre</label>
           <input type="text" id="name" name="name" autocomplete="name"/>
         </div>
         <div class="form-field">
-          <label for="email">E-Mail</label>
+          <label for="email">Email</label>
           <input type="email" id="email" name="email" autocomplete="email"/>
         </div>
         <div class="form-field">
-          <label for="message">Nachricht</label>
+          <label for="message">Mensaje</label>
           <textarea id="message" name="message" rows="5"></textarea>
         </div>
-        <button type="submit" class="form-submit">Nachricht senden</button>
+        <button type="submit" class="form-submit">Enviar consulta</button>
       </form>
     </div>
   </div>
@@ -686,7 +724,7 @@ if (contactForm) {
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
-        contactForm.innerHTML = '<div class="form-success"><p class="form-success-icon">✓</p><p class="form-success-title">Nachricht erhalten</p><p class="form-success-text">Wir melden uns innerhalb von 24–48 Werktagen bei Ihnen.</p></div>';
+        contactForm.innerHTML = '<div class="form-success"><p class="form-success-icon">✓</p><p class="form-success-title">Mensaje recibido</p><p class="form-success-text">Os responderemos en un máximo de 24–48 horas laborables.</p></div>';
       } else {
         btn.textContent = 'Error — inténtalo de nuevo';
         btn.disabled = false;
