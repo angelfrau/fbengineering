@@ -422,6 +422,28 @@ footer{
         .hero-sub-wrap{position:relative;min-height:3.4rem;width:clamp(280px,55vw,580px);}
         .hero-sub-item{position:absolute;top:0;left:0;width:100%;font-size:1rem;color:var(--muted);line-height:1.7;text-align:center;opacity:0;transition:opacity 1s ease;pointer-events:none;}
         .hero-sub-item.active{opacity:1;pointer-events:auto}
+        
+        /* ── MOBILE ONLY ── */
+        @media(max-width:768px){
+          /* Hero spacing */
+          #hero{padding:1rem var(--pad) 1.5rem}
+          .hero-logo{width:clamp(90px,32vw,130px);margin-bottom:0.6rem}
+          .hero-eyebrow{font-size:0.48rem;margin-bottom:0.7rem}
+          .hero-title{font-size:clamp(2.2rem,11vw,4rem);margin-bottom:0.5rem}
+          .hero-sub-wrap{min-height:4.5rem;width:88vw}
+          .hero-sub-item{font-size:0.82rem;line-height:1.55}
+          .hero-scroll{margin-top:0.5rem}
+          /* Mobile lang bar inside menu */
+          .mobile-lang-bar{
+            display:flex;align-items:center;gap:0.6rem;
+            margin-top:1.5rem;
+            font-family:'Space Mono',monospace;
+            font-size:0.65rem;letter-spacing:3px;
+          }
+          .mobile-lang-bar a{color:rgba(240,237,230,0.45);text-decoration:none;transition:color .2s}
+          .mobile-lang-bar a:hover,.mobile-lang-bar a.active{color:var(--gold)}
+          .mobile-lang-bar .sep{width:1px;height:9px;background:rgba(255,255,255,0.2)}
+        }
         </style>
 </head>
 <body>
@@ -461,6 +483,15 @@ footer{
   <a href="#servicios" class="mobile-link">Services</a>
   <a href="#proyectos" class="mobile-link">Projects</a>
   <a href="#contacto" class="mobile-link">Contact</a>
+  <div class="mobile-lang-bar">
+    <a href="../index.html">ES</a>
+    <span class="sep"></span>
+    <a href="../ca/index.html">CA</a>
+    <span class="sep"></span>
+    <a href="./index.html" class="active">EN</a>
+    <span class="sep"></span>
+    <a href="../de/index.html">DE</a>
+  </div>
 </div>
 
 <!-- ── HERO ── -->
