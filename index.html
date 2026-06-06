@@ -126,13 +126,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 /* ═══════════════════════════════════════════════════════
    HERO
 ════════════════════════════════════════════════════════ */
-#hero{
-  min-height:92vh;display:flex;flex-direction:column;
-  justify-content:center;align-items:center;text-align:center;
-  padding:6rem var(--pad) 4rem;
-  background:transparent;
-  position:relative;
-}
+#hero{display:flex;flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;padding:1.5rem var(--pad) 3rem;min-height:calc(100vh - 54px);background:transparent;position:relative;}
 #hero::before{
   content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,var(--gold-border),transparent);
@@ -177,8 +171,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 /* ═══════════════════════════════════════════════════════
    SECTIONS
 ════════════════════════════════════════════════════════ */
-section{padding:6rem 0;border-top:1px solid var(--border);
-  background:linear-gradient(180deg,rgba(80,50,20,0.04) 0%,transparent 100%)}
+section:not(#hero){padding:6rem 0;border-top:1px solid var(--border);background:linear-gradient(180deg,rgba(80,50,20,0.04) 0%,transparent 100%)}
 .section-title{
   font-family:'Cormorant Garamond',serif;font-weight:300;
   font-size:clamp(2rem,4vw,3rem);
