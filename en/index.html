@@ -119,7 +119,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
   font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:2px;padding:.5rem;
 }
 @media(max-width:768px){
-  .nav-links,.nav-lang{display:none}
+  .nav-links{display:none}
   .nav-toggle{display:block}
 }
 
@@ -444,6 +444,13 @@ footer{
           .mobile-lang-bar a:hover,.mobile-lang-bar a.active{color:var(--gold)}
           .mobile-lang-bar .sep{width:1px;height:9px;background:rgba(255,255,255,0.2)}
         }
+        
+          /* Lang visible on mobile nav */
+          @media(max-width:768px){
+            .nav-lang{display:flex;gap:.35rem;font-size:.5rem;letter-spacing:1.5px}
+            .nav-lang .sep{height:7px}
+            .nav-toggle{margin-left:.5rem}
+          }
         </style>
 </head>
 <body>
@@ -513,7 +520,7 @@ footer{
   <div class="container">
     <h2 class="section-title reveal">About Us</h2>
     <div class="intro-text">
-      <p class="reveal r2"><strong>Frau & Bär Engineering</strong> es un estudio de ingeniería industrial fundado en Mallorca con un único objetivo: entregar <strong>proyectos de la máxima calidad</strong> con un servicio <strong>eficiente, cercano y de alto valor.</strong></p>
+      <p class="reveal r2"><strong>Frau & Bär Engineering</strong> is an industrial engineering firm founded in Mallorca with one clear goal: delivering <strong>projects of the highest quality</strong> with a service that is <strong>efficient, personal and high-value.</strong></p>
       <p class="reveal r3">We are Murti Bär and Àngel Frau, industrial engineers. We combine technical rigour, attention to detail and a clear vision for the future: the <strong>digitalisation of industry</strong>.</p>
       <p class="reveal r4">Our way of working is straightforward yet demanding: we listen to the client, design tailored solutions, and execute them with the best available technology.</p>
     </div>
