@@ -419,14 +419,8 @@ footer{
         .form-success-text{font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--muted);line-height:1.8;max-width:320px}
 
         /* ── Rotating subtitle ── */
-        .hero-sub-wrap{position:relative;min-height:3.6rem;max-width:540px;margin:0 auto}
-        .hero-sub-item{
-            position:absolute;top:0;left:0;width:100%;
-            font-size:1rem;color:var(--muted);line-height:1.7;
-            text-align:center;opacity:0;
-            transition:opacity 1s ease;
-            pointer-events:none;
-        }
+        .hero-sub-wrap{position:relative;min-height:3.4rem;width:clamp(280px,55vw,580px);}
+        .hero-sub-item{position:absolute;top:0;left:0;width:100%;font-size:1rem;color:var(--muted);line-height:1.7;text-align:center;opacity:0;transition:opacity 1s ease;pointer-events:none;}
         .hero-sub-item.active{opacity:1;pointer-events:auto}
         </style>
 </head>
