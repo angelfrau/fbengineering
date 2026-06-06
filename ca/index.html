@@ -102,7 +102,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 .nav-toggle svg{display:block}
 #mobile-menu{
   display:none;
-  position:fixed;inset:0;z-index:999;
+  position:fixed;inset:0;z-index:10000;
   background:rgba(45,38,30,0.96);
   flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;
 }
@@ -114,9 +114,9 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1
 }
 #mobile-menu a:hover{color:var(--gold)}
 .menu-close{
-  position:absolute;top:1.5rem;right:1.5rem;
+  position:absolute;top:1rem;right:1.5rem;
   background:none;border:none;color:var(--muted);cursor:pointer;
-  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:2px;
+  font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:2px;padding:.5rem;
 }
 @media(max-width:768px){
   .nav-links,.nav-lang{display:none}
@@ -417,7 +417,12 @@ footer{
         .form-success-icon{font-size:2.5rem;color:var(--gold);line-height:1}
         .form-success-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--warm);letter-spacing:.08em}
         .form-success-text{font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--muted);line-height:1.8;max-width:320px}
-</style>
+
+        /* ── Rotating subtitle ── */
+        .hero-sub-wrap{position:relative;min-height:3.4rem;width:clamp(280px,55vw,580px);}
+        .hero-sub-item{position:absolute;top:0;left:0;width:100%;font-size:1rem;color:var(--muted);line-height:1.7;text-align:center;opacity:0;transition:opacity 1s ease;pointer-events:none;}
+        .hero-sub-item.active{opacity:1;pointer-events:auto}
+        </style>
 </head>
 <body>
 
@@ -451,11 +456,11 @@ footer{
 
 <!-- Mobile menu -->
 <div id="mobile-menu">
-  <button class="menu-close mono" id="menu-close">✕ CERRAR</button>
-  <a href="#quienes-somos" class="mobile-link">Quiénes Somos</a>
-  <a href="#servicios" class="mobile-link">Servicios</a>
-  <a href="#proyectos" class="mobile-link">Proyectos</a>
-  <a href="#contacto" class="mobile-link">Contacto</a>
+  <button class="menu-close mono" id="menu-close">✕ TANCAR</button>
+  <a href="#quienes-somos" class="mobile-link">Qui Som</a>
+  <a href="#servicios" class="mobile-link">Serveis</a>
+  <a href="#proyectos" class="mobile-link">Projectes</a>
+  <a href="#contacto" class="mobile-link">Contacte</a>
 </div>
 
 <!-- ── HERO ── -->
@@ -463,9 +468,9 @@ footer{
   <img src="../images/logo.png" alt="Frau & Bär Engineering" class="hero-logo"/>
   <p class="hero-eyebrow">Enginyeria Industrial · Mallorca</p>
   <h1 class="hero-title">FRAU &amp; BÄR<br/><em>ENGINEERING</em></h1>
-  <p class="hero-sub">A firm providing comprehensive engineering solutions — from concept to commissioning.</p>
+  <div class="hero-sub-wrap"><p class="hero-sub-item active">A firm providing comprehensive engineering solutions — from concept to commissioning.</p><p class="hero-sub-item">Una firma d'enginyeria industrial completa — del concepte a la posada en marxa.</p><p class="hero-sub-item">Un estudio de ingeniería integral — del concepto a la puesta en marcha.</p><p class="hero-sub-item">Ein Ingenieurbüro für umfassende Lösungen — vom Konzept bis zur Inbetriebnahme.</p></div>
   <a href="#quienes-somos" class="hero-scroll">
-    Descubrir
+    DESCOBRIR
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
       <path d="M6 1v10M1 7l5 5 5-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -692,6 +697,29 @@ if (contactForm) {
     }
   });
 }
-</script>
+
+        // Rotating subtitle
+        var subItems=document.querySelectorAll('.hero-sub-item');
+        var subIdx=0;
+        if(subItems.length>1){
+            setInterval(function(){
+                subItems[subIdx].classList.remove('active');
+                subIdx=(subIdx+1)%subItems.length;
+                subItems[subIdx].classList.add('active');
+            },3000);
+        }
+
+        // Rotating subtitle — fade every 3s
+        (function(){
+            var items = document.querySelectorAll('.hero-sub-item');
+            if(items.length < 2) return;
+            var idx = 0;
+            setInterval(function(){
+                items[idx].classList.remove('active');
+                idx = (idx + 1) % items.length;
+                items[idx].classList.add('active');
+            }, 3000);
+        })();
+        </script>
 </body>
 </html>
