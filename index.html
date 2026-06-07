@@ -459,7 +459,7 @@ footer{
             }
             #hero{
               justify-content:flex-start;
-              padding-top:3rem;
+              padding-top:6rem;
               gap:2.8rem;
             }
             .hero-logo{margin-bottom:0 !important}
@@ -775,6 +775,27 @@ if (contactForm) {
                 items[idx].classList.add('active');
             }, 3000);
         })();
+        
+        // Smooth slow scroll for DESCUBRIR and nav links
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){
+            a.addEventListener('click', function(e){
+                var target = document.querySelector(this.getAttribute('href'));
+                if(!target) return;
+                e.preventDefault();
+                var start = window.scrollY;
+                var end = target.getBoundingClientRect().top + window.scrollY - 54;
+                var duration = 1200;
+                var startTime = null;
+                function ease(t){ return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+                function step(ts){
+                    if(!startTime) startTime = ts;
+                    var progress = Math.min((ts-startTime)/duration, 1);
+                    window.scrollTo(0, start + (end-start)*ease(progress));
+                    if(progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            });
+        });
         </script>
 </body>
 </html>
