@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth;scroll-padding-top:54px;font-size:16px}
 
 :root{
   --gold:#D4A85A;
@@ -458,8 +458,8 @@ footer{
               background-image:radial-gradient(ellipse 250% 40% at 50% 0%, #4a3820 0%, #3a2c18 18%, #3a3028 38%, #343028 100%);
             }
             #hero{
-              justify-content:center;
-              padding:1.5rem var(--pad);
+              justify-content:flex-start;
+              padding-top:5.5rem;
               gap:2.8rem;
             }
             .hero-logo{margin-bottom:0 !important}
@@ -475,7 +475,7 @@ footer{
 <!-- ── NAV ── -->
 <nav id="site-nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">FRAU <span>&</span> BÄR</a>
+    <a href="javascript:window.scrollTo(0,0)" class="nav-logo">FRAU <span>&</span> BÄR</a>
     <ul class="nav-links">
       <li><a href="#quienes-somos">Qui Som</a></li>
       <li><a href="#servicios">Serveis</a></li>
@@ -775,6 +775,27 @@ if (contactForm) {
                 items[idx].classList.add('active');
             }, 3000);
         })();
+        
+        // Smooth slow scroll for DESCUBRIR and nav links
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){
+            a.addEventListener('click', function(e){
+                var target = document.querySelector(this.getAttribute('href'));
+                if(!target) return;
+                e.preventDefault();
+                var start = window.scrollY;
+                var end = target.getBoundingClientRect().top + window.scrollY - 54;
+                var duration = 1200;
+                var startTime = null;
+                function ease(t){ return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+                function step(ts){
+                    if(!startTime) startTime = ts;
+                    var progress = Math.min((ts-startTime)/duration, 1);
+                    window.scrollTo(0, start + (end-start)*ease(progress));
+                    if(progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            });
+        });
         </script>
 </body>
 </html>
